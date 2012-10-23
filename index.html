@@ -3,5 +3,8 @@ layout: default
 title: Home
 ---
 {% for post in site.categories.blog %}
-	{{ post.title }}
+	{% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+	{% if thecycle == 'odd' %}
+	    <div>echo something</div>
+	{% endif %}
 {% endfor %}
