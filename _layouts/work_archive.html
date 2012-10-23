@@ -1,0 +1,14 @@
+{% include header.html %}
+<div class="row">
+	<div class="span8">
+		<ul id="filters">
+			<li><a href="#" class="activework" data-filter="*">All</a></li>
+			<li><a href="#" data-filter=".brand">Brand</a></li>
+			<li><a href="#" data-filter=".web">Web Design</a></li>
+			<li><a href="#" data-filter=".development">Development</a></li>
+			<li><a href="#" data-filter=".misc">Misc</a></li>
+		</ul>
+	</div>
+</div>
+{{ content }}
+{% include footer.html %}
