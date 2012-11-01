@@ -4,7 +4,23 @@ title: Home
 ---
 {% for post in site.categories.blog %}
 	{% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-	{% if thecycle == 'odd' %}
-	    <div>echo something</div>
-	{% endif %}
+	
+	<div class="row">
+		<div class="post span6">
+			<div class="row">
+		{% if thecycle == 'odd' %}
+			<div class="image-left" style="background-image:url({{site.url}}/images/blog/{{post.image}})"></div>
+			<div class="span3 offset3">
+		{% else %}
+			<div class="image-right" style="background-image:url({{site.url}}/images/blog/{{post.image}})"></div>
+			<div class="span3">
+		{% endif %}
+				<h2>{{ post.title }}</h2>
+				<p>{{ post.excerpt }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 {% endfor %}
