@@ -6,6 +6,7 @@ title: Home
 	{% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
 	
 	<div class="row">
+		<a class="post-wrapper" href="{{ post.url }}">
 		<div class="post span6">
 			<div class="row">
 		{% if thecycle == 'odd' %}
@@ -20,6 +21,7 @@ title: Home
 				</div>
 			</div>
 		</div>
+		</a>
 	</div>
 	
 	

@@ -5,6 +5,8 @@ $lightblue: #AFC2CB;
 $baseFontSize:          12px;
 $baseLineHeight:        15px;
 
+$textColor:             #000;
+$linkColor:             #333;
 
 $gridColumns:             9;
 $gridColumnWidth:         80px;
@@ -21,12 +23,28 @@ $gridColumnWidth768:      62px;
 $gridGutterWidth768:      24px;
 $gridRowWidth768:         ($gridColumns * $gridColumnWidth768) + ($gridGutterWidth768 * ($gridColumns - 1));
 
+@font-face {
+	font-family: 'LeagueGothicRegular';
+	src: url('../font/League_Gothic-webfont.eot');
+	src: local('☺'), url('../font/League_Gothic-webfont.woff') format('woff'), url('../font/League_Gothic-webfont.ttf') format('truetype'), url('../font/League_Gothic-webfont.svg#webfontOTINA1xY') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @import "bootstrap";
 @import "bootstrap-responsive";
 
 body{
-	padding-top: 30px;
+	padding: 30px 0;
 	font-family: $monoFontFamily;
+}
+
+p, h2{
+	margin-bottom: 20px;
+}
+
+a{
+	color: #000;
 }
 
 h1.logo{
@@ -39,6 +57,27 @@ h1.logo{
 	margin: 0;
 }
 
+.header-nav{
+	margin: 0;
+	li{
+		list-style: none;
+		a{
+			font-family: 'LeagueGothicRegular';
+			text-transform: uppercase;
+			font-size: 30px;
+			line-height: 1.25;
+		}
+		
+	}
+}
+
+h2{
+	font-family: 'LeagueGothicRegular';
+	text-transform: uppercase;
+	font-size: 44px;
+	font-weight: normal;
+}
+
 .content{
 	border-top: 2px solid #000;	
 }
@@ -48,6 +87,7 @@ h1.logo{
 	overflow: hidden;
 	position: relative;
 	border-top: 1px solid #000;
+	padding: 20px 0;
 }
 
 .image-left,
@@ -57,6 +97,7 @@ h1.logo{
 	width: 300px;
 	@include background-size(300px);
 	background-repeat: repeat-y;
+	margin-top: -20px;
 }
 .image-left{
 	margin-left: 30px;
@@ -65,6 +106,34 @@ h1.logo{
 	margin-left: 360px;
 }
 
-a.row{
-	height: auto;
+a .post{
+	color: #000;
+}
+
+.post-image{
+	margin-bottom: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.image-left,
+	.image-right{
+		width: 236px;
+		@include background-size(236px);
+	}
+	.image-left{
+		margin-left: 24px;
+	}
+	.image-right{
+		margin-left: 280px;
+	}
+}
+@media (max-width: 767px){
+	.image-left,
+	.image-right{
+		display: none;
+	}
+	img{
+		width: 100%;
+		height: auto;
+	}
 }

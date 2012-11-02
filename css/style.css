@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url("../font/League_Gothic-webfont.eot");
+  src: local("☺"), url("../font/League_Gothic-webfont.woff") format("woff"), url("../font/League_Gothic-webfont.ttf") format("truetype"), url("../font/League_Gothic-webfont.svg#webfontOTINA1xY") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 .clearfix {
   *zoom: 1; }
   .clearfix:before, .clearfix:after {
@@ -110,15 +117,15 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 15px;
-  color: #333333;
+  color: black;
   background-color: white; }
 
 a {
-  color: #0088cc;
+  color: #333333;
   text-decoration: none; }
 
 a:hover {
-  color: #005580;
+  color: #0d0d0d;
   text-decoration: underline; }
 
 .img-rounded {
@@ -1006,7 +1013,7 @@ select:focus:required:invalid {
 
 .help-block,
 .help-inline {
-  color: #595959; }
+  color: #262626; }
 
 .help-block {
   display: block;
@@ -1921,30 +1928,30 @@ table .span9 {
 .dropdown-submenu:hover > a {
   text-decoration: none;
   color: white;
-  background-color: #0088cc;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #333333;
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(to bottom, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0077B3', GradientType=0); }
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF333333', endColorstr='#FF262626', GradientType=0); }
 
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   color: white;
   text-decoration: none;
   outline: 0;
-  background-color: #0088cc;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
-  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
-  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-color: #333333;
+  background-color: #2d2d2d;
+  background-image: -moz-linear-gradient(top, #333333, #262626);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#262626));
+  background-image: -webkit-linear-gradient(top, #333333, #262626);
+  background-image: -o-linear-gradient(top, #333333, #262626);
+  background-image: linear-gradient(to bottom, #333333, #262626);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0077B3', GradientType=0); }
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF333333', endColorstr='#FF262626', GradientType=0); }
 
 .dropdown-menu .disabled > a,
 .dropdown-menu .disabled > a:hover {
@@ -2218,25 +2225,25 @@ button.close {
 .btn-primary {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #006ccc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-color: #333333;
+  background-image: -moz-linear-gradient(top, #333333, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#333333));
+  background-image: -webkit-linear-gradient(top, #333333, #333333);
+  background-image: -o-linear-gradient(top, #333333, #333333);
+  background-image: linear-gradient(to bottom, #333333, #333333);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0044CC', GradientType=0);
-  border-color: #0044cc #0044cc #002a80;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF333333', endColorstr='#FF333333', GradientType=0);
+  border-color: #333333 #333333 #0d0d0d;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) fadein(rgba(0, 0, 0, 0.1), 15%);
-  *background-color: #0044cc;
+  *background-color: #333333;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
   .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
     color: white;
-    background-color: #0044cc;
-    *background-color: #003bb3; }
+    background-color: #333333;
+    *background-color: #262626; }
   .btn-primary:active, .btn-primary.active {
-    background-color: #003399 \9; }
+    background-color: #1a1a1a \9; }
 
 .btn-warning {
   color: white;
@@ -2385,13 +2392,13 @@ input[type="submit"].btn {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #0088cc;
+  color: #333333;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0; }
 
 .btn-link:hover {
-  color: #005580;
+  color: #0d0d0d;
   text-decoration: underline;
   background-color: transparent; }
 
@@ -2521,7 +2528,7 @@ input[type="submit"].btn {
 .btn-group.open .btn.dropdown-toggle {
   background-color: #e6e6e6; }
 .btn-group.open .btn-primary.dropdown-toggle {
-  background-color: #0044cc; }
+  background-color: #333333; }
 .btn-group.open .btn-warning.dropdown-toggle {
   background-color: #f89406; }
 .btn-group.open .btn-danger.dropdown-toggle {
@@ -2691,7 +2698,7 @@ input[type="submit"].btn {
 .nav-list > .active > a:hover {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc; }
+  background-color: #333333; }
 
 .nav-list [class^="icon-"] {
   margin-right: 2px; }
@@ -2766,7 +2773,7 @@ input[type="submit"].btn {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: white;
-  background-color: #0088cc; }
+  background-color: #333333; }
 
 .nav-stacked > li {
   float: none; }
@@ -2820,13 +2827,13 @@ input[type="submit"].btn {
   border-radius: 6px; }
 
 .nav .dropdown-toggle .caret {
-  border-top-color: #0088cc;
-  border-bottom-color: #0088cc;
+  border-top-color: #333333;
+  border-bottom-color: #333333;
   margin-top: 6px; }
 
 .nav .dropdown-toggle:hover .caret {
-  border-top-color: #005580;
-  border-bottom-color: #005580; }
+  border-top-color: #0d0d0d;
+  border-bottom-color: #0d0d0d; }
 
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
@@ -3808,7 +3815,7 @@ input[type="submit"].btn {
   transition: all 0.2s ease-in-out; }
 
 a.thumbnail:hover {
-  border-color: #0088cc;
+  border-color: #333333;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25); }
@@ -4953,8 +4960,14 @@ a.label:hover, a.badge:hover {
     height: auto !important;
     overflow: visible !important; } }
 body {
-  padding-top: 30px;
+  padding: 30px 0;
   font-family: "Courier New", Courier, Monaco, Menlo, Consolas, monospace; }
+
+p, h2 {
+  margin-bottom: 20px; }
+
+a {
+  color: #000; }
 
 h1.logo {
   font: 0/0 a;
@@ -4972,6 +4985,22 @@ h1.logo {
   padding: 0;
   margin: 0; }
 
+.header-nav {
+  margin: 0; }
+  .header-nav li {
+    list-style: none; }
+    .header-nav li a {
+      font-family: 'LeagueGothicRegular';
+      text-transform: uppercase;
+      font-size: 30px;
+      line-height: 1.25; }
+
+h2 {
+  font-family: 'LeagueGothicRegular';
+  text-transform: uppercase;
+  font-size: 44px;
+  font-weight: normal; }
+
 .content {
   border-top: 2px solid #000; }
 
@@ -4979,7 +5008,8 @@ h1.logo {
   display: block;
   overflow: hidden;
   position: relative;
-  border-top: 1px solid #000; }
+  border-top: 1px solid #000;
+  padding: 20px 0; }
 
 .image-left,
 .image-right {
@@ -4990,7 +5020,8 @@ h1.logo {
   -moz-background-size: 300px;
   -o-background-size: 300px;
   background-size: 300px;
-  background-repeat: repeat-y; }
+  background-repeat: repeat-y;
+  margin-top: -20px; }
 
 .image-left {
   margin-left: 30px; }
@@ -4998,5 +5029,31 @@ h1.logo {
 .image-right {
   margin-left: 360px; }
 
-a.row {
-  height: auto; }
+a .post {
+  color: #000; }
+
+.post-image {
+  margin-bottom: 20px; }
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .image-left,
+  .image-right {
+    width: 236px;
+    -webkit-background-size: 236px;
+    -moz-background-size: 236px;
+    -o-background-size: 236px;
+    background-size: 236px; }
+
+  .image-left {
+    margin-left: 24px; }
+
+  .image-right {
+    margin-left: 280px; } }
+@media (max-width: 767px) {
+  .image-left,
+  .image-right {
+    display: none; }
+
+  img {
+    width: 100%;
+    height: auto; } }
