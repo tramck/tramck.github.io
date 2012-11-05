@@ -7,8 +7,22 @@ function likes(){
 }
 
 $(document).ready(function(){
+
 	likes();
+	
 	$('a#about-image').click(function(){
 		likes();
 	});
+	
+	$('#filters a').click( function(e){
+		e.preventDefault();
+		$(this).parents('#filters').find('.activework').removeClass('activework');
+		$(this).addClass('activework');
+		var filterType = $(this).attr('data-filter');
+		$('.workitem').addClass('filtered');
+		$(filterType).removeClass('filtered');
+	});
+
+	prettyPrint();
+	
 });

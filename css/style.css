@@ -5035,6 +5035,49 @@ a .post {
 .post-image {
   margin-bottom: 20px; }
 
+.filters {
+  list-style: none;
+  margin: 0 0 20px 0;
+  float: left; }
+  .filters li {
+    float: left;
+    margin-right: 20px; }
+    .filters li .activework {
+      text-decoration: underline; }
+
+.workitem {
+  -webkit-transition: .1s linear;
+  -moz-transition: .1s linear;
+  -o-transition: .1s linear;
+  transition: .1s linear;
+  position: relative; }
+  .workitem .work-wrapper {
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden; }
+  .workitem a:hover h3 {
+    font-family: 'LeagueGothicRegular';
+    text-transform: uppercase;
+    font-size: 44px;
+    font-weight: normal;
+    display: block;
+    width: 170px;
+    height: 170px;
+    background: rgba(0, 0, 0, 0.85) url(images/porthover.png);
+    position: absolute;
+    padding: 10px;
+    margin-top: -190px;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -o-transition: opacity .25s linear;
+    opacity: 1; }
+
+.workitem.filtered {
+  opacity: .25; }
+
 @media (min-width: 768px) and (max-width: 979px) {
   .image-left,
   .image-right {
