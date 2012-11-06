@@ -1,5 +1,6 @@
 source 'http://gemcutter.org'
 
+gem 'mini_magick'
 gem 'jekyll'
 gem 'compass'
 gem 'sass'

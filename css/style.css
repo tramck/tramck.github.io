@@ -4959,15 +4959,202 @@ a.label:hover, a.badge:hover {
   .nav-collapse.collapse {
     height: auto !important;
     overflow: visible !important; } }
+@-webkit-keyframes gradatecolor {
+  0% {
+    color: #ffff00; }
+
+  17% {
+    color: #8BFF3F; }
+
+  34% {
+    color: #00ffff; }
+
+  50% {
+    color: #00ADEE; }
+
+  67% {
+    color: #00ffff; }
+
+  84% {
+    color: #8BFF3F; }
+
+  100% {
+    color: #ffff00; } }
+
+@-moz-keyframes gradatecolor {
+  0% {
+    color: #ffff00; }
+
+  17% {
+    color: #8BFF3F; }
+
+  34% {
+    color: #00ffff; }
+
+  50% {
+    color: #00ADEE; }
+
+  67% {
+    color: #00ffff; }
+
+  84% {
+    color: #8BFF3F; }
+
+  100% {
+    color: #ffff00; } }
+
+@-ms-keyframes gradatecolor {
+  0% {
+    color: #ffff00; }
+
+  17% {
+    color: #8BFF3F; }
+
+  34% {
+    color: #00ffff; }
+
+  50% {
+    color: #00ADEE; }
+
+  67% {
+    color: #00ffff; }
+
+  84% {
+    color: #8BFF3F; }
+
+  100% {
+    color: #ffff00; } }
+
+@-o-keyframes gradatecolor {
+  0% {
+    color: #ffff00; }
+
+  17% {
+    color: #8BFF3F; }
+
+  34% {
+    color: #00ffff; }
+
+  50% {
+    color: #00ADEE; }
+
+  67% {
+    color: #00ffff; }
+
+  84% {
+    color: #8BFF3F; }
+
+  100% {
+    color: #ffff00; } }
+
+@-webkit-keyframes gradatebg {
+  0% {
+    background-color: #ffff00; }
+
+  17% {
+    background-color: #8BFF3F; }
+
+  34% {
+    background-color: #00ffff; }
+
+  50% {
+    background-color: #00ADEE; }
+
+  67% {
+    background-color: #00ffff; }
+
+  84% {
+    background-color: #8BFF3F; }
+
+  100% {
+    background-color: #ffff00; } }
+
+@-moz-keyframes gradatebg {
+  0% {
+    background-color: #ffff00; }
+
+  17% {
+    background-color: #8BFF3F; }
+
+  34% {
+    background-color: #00ffff; }
+
+  50% {
+    background-color: #00ADEE; }
+
+  67% {
+    background-color: #00ffff; }
+
+  84% {
+    background-color: #8BFF3F; }
+
+  100% {
+    background-color: #ffff00; } }
+
+@-ms-keyframes gradatebg {
+  0% {
+    background-color: #ffff00; }
+
+  17% {
+    background-color: #8BFF3F; }
+
+  34% {
+    background-color: #00ffff; }
+
+  50% {
+    background-color: #00ADEE; }
+
+  67% {
+    background-color: #00ffff; }
+
+  84% {
+    background-color: #8BFF3F; }
+
+  100% {
+    background-color: #ffff00; } }
+
+@-o-keyframes gradatebg {
+  0% {
+    background-color: #ffff00; }
+
+  17% {
+    background-color: #8BFF3F; }
+
+  34% {
+    background-color: #00ffff; }
+
+  50% {
+    background-color: #00ADEE; }
+
+  67% {
+    background-color: #00ffff; }
+
+  84% {
+    background-color: #8BFF3F; }
+
+  100% {
+    background-color: #ffff00; } }
+
+.gradatecolor {
+  -webkit-animation: gradatecolor 20s infinite;
+  -moz-animation: gradatecolor 20s infinite;
+  -o-animation: gradatecolor 20s infinite;
+  animation: gradatecolor 20s infinite;
+  color: #ffff00; }
+
+.gradatebg {
+  -webkit-animation: gradatebg 20s infinite;
+  -moz-animation: gradatebg 20s infinite;
+  -o-animation: gradatebg 20s infinite;
+  animation: gradatebg 20s infinite;
+  background-color: #ffff00; }
+
 body {
   padding: 30px 0;
   font-family: "Courier New", Courier, Monaco, Menlo, Consolas, monospace; }
 
 p, h2 {
   margin-bottom: 20px; }
-
-a {
-  color: #000; }
 
 h1.logo {
   font: 0/0 a;
@@ -5055,6 +5242,13 @@ a .post {
     height: 0;
     padding-bottom: 100%;
     overflow: hidden; }
+  .workitem a h3 {
+    -webkit-transition: opacity .1s linear;
+    -moz-transition: opacity .1s linear;
+    -o-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+    opacity: 0;
+    background-image: url(../images/casepattern.png); }
   .workitem a:hover h3 {
     font-family: 'LeagueGothicRegular';
     text-transform: uppercase;
@@ -5063,17 +5257,17 @@ a .post {
     display: block;
     width: 170px;
     height: 170px;
-    background: rgba(0, 0, 0, 0.85) url(images/porthover.png);
     position: absolute;
     padding: 10px;
     margin-top: -190px;
     margin-bottom: 0;
     text-decoration: none;
-    color: white;
-    -webkit-transition: opacity .25s linear;
-    -moz-transition: opacity .25s linear;
-    -o-transition: opacity .25s linear;
-    opacity: 1; }
+    color: #000;
+    opacity: .925;
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); }
 
 .workitem.filtered {
   opacity: .25; }
