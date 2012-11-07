@@ -5153,8 +5153,15 @@ body {
   padding: 30px 0;
   font-family: "Courier New", Courier, Monaco, Menlo, Consolas, monospace; }
 
+img {
+  width: 100%;
+  height: auto; }
+
 p, h2 {
   margin-bottom: 20px; }
+
+p a {
+  text-decoration: underline; }
 
 h1.logo {
   font: 0/0 a;
@@ -5301,6 +5308,10 @@ a .post {
       margin-top: -148px;
       opacity: .925; } }
 @media (max-width: 767px) {
+  body {
+    padding-left: 20px;
+    padding-right: 20px; }
+
   .image-left,
   .image-right {
     display: none; }
