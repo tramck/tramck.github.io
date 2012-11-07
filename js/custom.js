@@ -14,6 +14,16 @@ $(document).ready(function(){
 		likes();
 	});
 	
+	$('.work-accordion a').click(function(e){
+		e.preventDefault();
+		$('.active').removeClass('active');
+		var $this = $(this);
+		setTimeout(function(){
+			$this.addClass('active');
+		}, 250);
+		
+	});
+	
 	$('#filters a').click( function(e){
 		e.preventDefault();
 		$(this).parents('#filters').find('.activework').removeClass('activework');
@@ -24,5 +34,6 @@ $(document).ready(function(){
 	});
 
 	prettyPrint();
+	
 	
 });
