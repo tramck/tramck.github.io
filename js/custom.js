@@ -7,7 +7,9 @@ function likes(){
 }
 
 $(document).ready(function(){
-
+	$('pre').addClass("prettyprint linenums");
+	$('code').addClass("prettyprint");
+	prettyPrint();
 	likes();
 	
 	$('a#about-image').click(function(){
@@ -33,7 +35,7 @@ $(document).ready(function(){
 		$(filterType).removeClass('filtered');
 	});
 
-	prettyPrint();
+	
 	
 	
 });

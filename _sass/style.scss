@@ -244,6 +244,9 @@ img{
 	width: 100%;
 	height: auto;
 }
+li {
+	line-height: 18px;
+}
 p, h2{
 	margin-bottom: 20px;
 }
@@ -312,7 +315,9 @@ h2{
 a .post{
 	color: #000;
 }
-
+.post-wrapper:hover h2{
+	text-decoration: underline;
+}
 .post-image{
 	margin-bottom: 20px;
 }
