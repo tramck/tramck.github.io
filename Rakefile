@@ -16,6 +16,14 @@ task :project, [:name] do |t, args|
   end
 end
 
+desc "Builds and deploy"
+task :deploy do
+  #puts "*** Building the site ***"
+  #system "jekyll --url http://travmckinney.com"
+  #puts "*** Deploying the site ***"
+  #system "rsync -avz --delete . #{ssh_user}:#{remote_root}/wp-content/themes/#{theme}/"
+end
+
 def template(name, type)
   t = Time.now
   contents = "" # otherwise using it below will be badly scoped

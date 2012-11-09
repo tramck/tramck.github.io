@@ -8,7 +8,7 @@ images:
 - ces-1.png
 - ces-2.png
 ---
-In October 2012, Cornell University hosted their annual conference on entrepreneurship. I developed a fully responsive, single-page website for the conference.
+In October 2012, Cornell University hosted their annual conference on entrepreneurship. While working at [Red Antler](http://redantler.com) I developed a fully responsive, single-page website for the conference.
 
 [View Site](http://summit.eship.cornell.edu)
 
