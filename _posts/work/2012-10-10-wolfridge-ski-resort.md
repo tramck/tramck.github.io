@@ -9,3 +9,4 @@ images:
 - wrsr-2.png
 - wrsr-3.png
 ---
+Wolf Ridge Ski Resort is a mid sized ski park located in North Carolina. I redefined their visual identity giving the resort a new brand mark, trail map, iphone app, and lift tickets.

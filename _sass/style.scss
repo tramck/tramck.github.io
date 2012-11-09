@@ -415,6 +415,20 @@ a .post{
 		padding-left: 20px;
 		padding-right: 20px;
 	}
+	h1.logo{
+		margin-bottom: 20px;
+	}
+	ul.header-nav{
+		float: left;
+		display: block;
+		width: 100%;
+		margin-bottom: 5px;
+		li{
+			float: left;
+			width: auto;
+			margin-right: 20px;
+		}
+	}
 	.image-left,
 	.image-right{
 		display: none;
