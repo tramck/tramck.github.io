@@ -2,3 +2,4 @@
 *.scssc
 Gemfile.lock
 _site/
+_deployvariables.rb
