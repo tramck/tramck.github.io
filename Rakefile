@@ -1,4 +1,4 @@
-require "_deployvariables.rb"
+require "_deployvariables"
 
 desc 'Make a new post'
 task :post, [:name] do |t, args|
@@ -23,7 +23,7 @@ task :deploy do
   puts "*** Building the site ***"
   system "jekyll --url http://travmckinney.com --no-auto" 
   puts "*** Deploying the site ***"
-  system "rsync -avzn --delete . #{ssh_user}:#{remote_root}/public_html"
+  system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html"
 end
 
 def template(name, type)
