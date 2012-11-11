@@ -50,6 +50,6 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 
-exclude: config.rb, Procfile, Gemfile, Gemfile.lock, Rakefile
+exclude: config.rb, Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
 
 url: http://0.0.0.0:4000
