@@ -5183,6 +5183,9 @@ h1.logo {
   padding: 0;
   margin: 0; }
 
+a.logo-link:hover {
+  text-decoration: none; }
+
 .header-nav {
   margin: 0; }
   .header-nav li {
