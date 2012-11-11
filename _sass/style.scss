@@ -250,7 +250,8 @@ li {
 p, h2{
 	margin-bottom: 20px;
 }
-p a{
+p a,
+ul a{
 	text-decoration: underline;
 }
 h1.logo{
@@ -272,6 +273,10 @@ h1.logo{
 			text-transform: uppercase;
 			font-size: 30px;
 			line-height: 1.25;
+			text-decoration: none;
+			&:hover{
+				text-decoration: underline;
+			}
 		}
 		
 	}

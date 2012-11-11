@@ -5163,7 +5163,8 @@ li {
 p, h2 {
   margin-bottom: 20px; }
 
-p a {
+p a,
+ul a {
   text-decoration: underline; }
 
 h1.logo {
@@ -5190,7 +5191,10 @@ h1.logo {
       font-family: 'LeagueGothicRegular';
       text-transform: uppercase;
       font-size: 30px;
-      line-height: 1.25; }
+      line-height: 1.25;
+      text-decoration: none; }
+      .header-nav li a:hover {
+        text-decoration: underline; }
 
 h2 {
   font-family: 'LeagueGothicRegular';
