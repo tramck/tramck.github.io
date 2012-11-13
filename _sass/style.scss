@@ -469,9 +469,13 @@ a .post{
 	li{
 		float: left;
 		margin-right: 20px;
-		.activework{
-			text-decoration: underline;
+		a{
+			text-decoration: none;
+			&.activework{
+				text-decoration: underline;
+			}
 		}
+		
 	}
 }
 .workitem{

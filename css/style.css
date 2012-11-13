@@ -5362,8 +5362,10 @@ a .post {
   .filters li {
     float: left;
     margin-right: 20px; }
-    .filters li .activework {
-      text-decoration: underline; }
+    .filters li a {
+      text-decoration: none; }
+      .filters li a.activework {
+        text-decoration: underline; }
 
 .workitem {
   -webkit-transition: .1s linear;
