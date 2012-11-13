@@ -5135,6 +5135,118 @@ a.label:hover, a.badge:hover {
   100% {
     background-color: #ffff00; } }
 
+@-webkit-keyframes leavebottom {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px 250%; } }
+
+@-moz-keyframes leavebottom {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px 250%; } }
+
+@-o-keyframes leavebottom {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px 250%; } }
+
+@keyframes leavebottom {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px 250%; } }
+
+@-webkit-keyframes leavetop {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px -150%; } }
+
+@-moz-keyframes leavetop {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px -150%; } }
+
+@-o-keyframes leavetop {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px -150%; } }
+
+@keyframes leavetop {
+  0% {
+    background-position: 10px 50%; }
+
+  100% {
+    background-position: 10px -150%; } }
+
+@-webkit-keyframes entertop {
+  0% {
+    background-position: 10px -150%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@-moz-keyframes entertop {
+  0% {
+    background-position: 10px -150%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@-o-keyframes entertop {
+  0% {
+    background-position: 10px -150%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@keyframes entertop {
+  0% {
+    background-position: 10px -150%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@-webkit-keyframes enterbottom {
+  0% {
+    background-position: 10px 250%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@-moz-keyframes enterbottom {
+  0% {
+    background-position: 10px 250%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@-o-keyframes enterbottom {
+  0% {
+    background-position: 10px 250%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
+@keyframes enterbottom {
+  0% {
+    background-position: 10px 250%; }
+
+  100% {
+    background-position: 10px 50%; } }
+
 .gradatecolor {
   -webkit-animation: gradatecolor 20s infinite;
   -moz-animation: gradatecolor 20s infinite;
@@ -5240,7 +5352,8 @@ a .post {
   text-decoration: underline; }
 
 .post-image {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border-top: 1px solid #000; }
 
 .filters {
   list-style: none;
@@ -5295,6 +5408,74 @@ a .post {
 .work-image {
   margin: 20px 0 0 0;
   box-shadow: 0 0 5px #ccc; }
+
+.sidebar {
+  border-top: 3px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000; }
+  .sidebar h3 {
+    border-bottom: 1px solid #000;
+    font-family: 'LeagueGothicRegular';
+    text-transform: uppercase;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: .1em;
+    padding: 10px;
+    line-height: 1;
+    background: #eeeeee url(../images/casepattern.png);
+    box-shadow: inset 0 0 3px #ccc; }
+  .sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .sidebar ul li {
+      padding: 0;
+      margin: 0; }
+      .sidebar ul li a {
+        padding: 15px 10px 15px 10px;
+        line-height: 1;
+        border-bottom: 1px solid #000;
+        display: block;
+        text-decoration: none;
+        color: #000;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        -webkit-transition: background-color 0.5s ease-in-out, padding 0.25s ease-in-out;
+        -moz-transition: background-color 0.5s ease-in-out, padding 0.25s ease-in-out;
+        -o-transition: background-color 0.5s ease-in-out, padding 0.25s ease-in-out;
+        transition: background-color 0.5s ease-in-out, padding 0.25s ease-in-out; }
+        .sidebar ul li a.twitter {
+          background-image: url(../images/twitter.png); }
+        .sidebar ul li a.instagram {
+          background-image: url(../images/instagram.png); }
+        .sidebar ul li a.stackoverflow {
+          background-image: url(../images/stackoverflow.png); }
+        .sidebar ul li a.github {
+          background-image: url(../images/github.png); }
+        .sidebar ul li a:hover {
+          padding: 15px 10px 15px 45px;
+          background-color: #222;
+          color: #fff; }
+        .sidebar ul li a.leavetop {
+          -webkit-animation: leavetop .5s;
+          -moz-animation: leavetop .5s;
+          -o-animation: leavetop .5s;
+          animation: leavetop .5s; }
+        .sidebar ul li a.leavebottom {
+          -webkit-animation: leavebottom .5s;
+          -moz-animation: leavebottom .5s;
+          -o-animation: leavebottom .5s;
+          animation: leavebottom .5s; }
+        .sidebar ul li a.entertop {
+          -webkit-animation: entertop .5s;
+          -moz-animation: entertop .5s;
+          -o-animation: entertop .5s;
+          animation: entertop .5s; }
+        .sidebar ul li a.enterbottom {
+          -webkit-animation: enterbottom .5s;
+          -moz-animation: enterbottom .5s;
+          -o-animation: enterbottom .5s;
+          animation: enterbottom .5s; }
 
 @media (min-width: 768px) and (max-width: 979px) {
   .image-left,
