@@ -2,10 +2,11 @@
 
 This is the portfolio site and blog of Designer and Web Developer [Travis McKinney](travmckinney.com).
 
-## Dependencies
+## Installing Dependencies
 
-- Less
-    npm install -g less
+### Less 
+
+`npm install -g less`
 
 ## Running The Dev Server
 
