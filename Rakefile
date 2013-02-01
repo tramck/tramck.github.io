@@ -1,4 +1,4 @@
-require "_deployvariables"
+# require "_deployvariables"
 
 desc 'Make a new post'
 task :post, [:name] do |t, args|

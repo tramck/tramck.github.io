@@ -2,6 +2,11 @@
 
 This is the portfolio site and blog of Designer and Web Developer [Travis McKinney](travmckinney.com).
 
+## Dependencies
+
+- Less
+    npm install -g less
+
 ## Running The Dev Server
 
 I am using Foreman so that the dev server can run while Compass watches for changes. To run jekyll on your dev server run `foreman start`.
