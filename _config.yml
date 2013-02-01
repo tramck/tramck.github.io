@@ -24,6 +24,7 @@
 
 permalink: /:categories/:title
 auto: true
+safe: false
 
 maruku:
   use_tex:    false
@@ -50,6 +51,6 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 
-exclude: config.rb, Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
+exclude: Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
 
 url: http://0.0.0.0:4000

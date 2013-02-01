@@ -13,6 +13,25 @@
   </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+  var work = {
+{% for post in site.categories.work %}
+    post{{ forloop.index }} : {
+      title: "{{ post.title }}",
+      content: "{{ post.content | strip_newlines }}"
+    },
+{% endfor %}
+  };
+  
+  var blog = {
+{% for post in site.categories.blog %}
+    post{{ forloop.index }} : {
+      title: "{{ post.title }}",
+      content: "{{ post.content | strip_newlines }}"
+    },
+{% endfor %}
+  };
+</script>
 <script src="/js/prettify.js"></script>
 <script src="/js/custom.js"></script>
 <script type="text/javascript">

@@ -1,5 +1,48 @@
+@font-face {
+    font-family: 'Colfax-Regular';
+    src: url('../font/ColfaxWebRegular.eot?') format('eot'),
+         url('../font/ColfaxWebRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Colfax-Regular-Italic';
+    src: url('../font/ColfaxWebRegularItalic.eot?') format('eot'),
+         url('../font/ColfaxWebRegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Colfax-Medium';
+    src: url('../font/ColfaxWebMedium.eot?') format('eot'),
+         url('../font/ColfaxWebMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Colfax-Medium-Italic';
+    src: url('../font/ColfaxWebMediumItalic.eot?') format('eot'),
+         url('../font/ColfaxWebMediumItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Colfax-Black';
+    src: url('../font/ColfaxWebBlack.eot?') format('eot'),
+         url('../font/ColfaxWebBlack.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @import "_lib/bootstrap";
 @import "_lib/responsive";
+
+@sansFontFamily: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 
 body{
 	background: #efefef;
@@ -7,8 +50,26 @@ body{
 
 .content{
 	background: #fff;
+	.box-shadow(0 0 1px rgba(0, 0, 0, .25));
 }
 .header{
 	height: 800px;
 	background: #ccc;
+}
+.navigation{
+	background: @black;
+	padding: 5px 0;
+	color: #fff;
+	text-align: center;
+	
+	a{
+		padding: 0 10px;
+	}
+}
+.about{
+	padding: 100px 5%;
+	p{
+		font-size: 40px;
+		line-height: 1.2;
+	}
 }

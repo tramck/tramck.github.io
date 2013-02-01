@@ -1,3 +1,33 @@
+@font-face {
+  font-family: 'Colfax-Regular';
+  src: url('../font/ColfaxWebRegular.eot?') format('eot'), url('../font/ColfaxWebRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Colfax-Regular-Italic';
+  src: url('../font/ColfaxWebRegularItalic.eot?') format('eot'), url('../font/ColfaxWebRegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Colfax-Medium';
+  src: url('../font/ColfaxWebMedium.eot?') format('eot'), url('../font/ColfaxWebMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Colfax-Medium-Italic';
+  src: url('../font/ColfaxWebMediumItalic.eot?') format('eot'), url('../font/ColfaxWebMediumItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Colfax-Black';
+  src: url('../font/ColfaxWebBlack.eot?') format('eot'), url('../font/ColfaxWebBlack.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 /*!
  * Bootstrap v2.2.2
  *
@@ -214,7 +244,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -1293,7 +1323,7 @@ input,
 button,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 label {
   display: block;
@@ -5475,16 +5505,16 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
@@ -9259,8 +9289,30 @@ body {
 }
 .content {
   background: #fff;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
 }
 .header {
   height: 800px;
   background: #ccc;
+}
+.navigation {
+  background: #000000;
+  padding: 5px 0;
+  color: #fff;
+  text-align: center;
+}
+.navigation a {
+  padding: 0 10px;
+}
+.about {
+  padding: 100px 5%;
+}
+.about p {
+  font-size: 40px;
+  line-height: 1.2;
 }
