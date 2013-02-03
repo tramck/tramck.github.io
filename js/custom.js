@@ -13,7 +13,7 @@ function sendToArea(location){
 	var position = $('#' + location[1]).offset().top;
 	$('html, body').animate({
 		scrollTop: position
-	});
+	}, 1000);
 	
 	if (location[2]){
 		if (location[1] == "work"){
@@ -45,6 +45,8 @@ function openWork(project){
 }
 
 function closeWork(){
+	window.location.hash = "#/work";
+	sendToHash();
 	$('#work-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#work-content, #work-images, #work-title').empty();
