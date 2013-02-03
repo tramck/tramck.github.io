@@ -1,5 +1,5 @@
 ---              
-layout: work_entry
+layout: default
 category: work
 title: Global Health Corps
 tags: development web

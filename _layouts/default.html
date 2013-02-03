@@ -3,9 +3,16 @@
   <meta charset="utf-8">
   <title>Travis McKinney{% if page.title %} | {{ page.title }} {% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Travis McKinney is a designer and web developer living and working in Brooklyn.{% endif %}">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/prettify.css">
+  <link rel="stylesheet" href="{{site.url}}/css/style.css">
+  <link rel="stylesheet" href="{{site.url}}/css/prettify.css">
   <link rel="shortcut icon" href="/images/favicon.ico">
+  <script type="text/javascript" charset="utf-8">
+    var path = window.location.pathname;
+    
+    if (window.location.pathname !== "/"){
+      window.location.href = "{{ site.url }}/#" + path;
+    }
+  </script>
 </head>
 <body>
   <div class="container content">
@@ -16,7 +23,7 @@
 <script type="text/javascript" charset="utf-8">
   var work = {
 {% for post in site.categories.work %}
-    post{{ forloop.index }} : {
+    "{{ post.url | remove_first:'/work/' }}" : {
       title: "{{ post.title }}",
       content: "{{ post.content | strip_newlines }}"
     },
@@ -25,15 +32,15 @@
   
   var blog = {
 {% for post in site.categories.blog %}
-    post{{ forloop.index }} : {
+    "{{ post.url | remove_first:'/blog/' }}" : {
       title: "{{ post.title }}",
       content: "{{ post.content | strip_newlines }}"
     },
 {% endfor %}
   };
 </script>
-<script src="/js/prettify.js"></script>
-<script src="/js/custom.js"></script>
+<script src="{{site.url}}/js/prettify.js"></script>
+<script src="{{site.url}}/js/custom.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

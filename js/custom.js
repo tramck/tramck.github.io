@@ -1,89 +1,53 @@
-var images = ["camping", "Prospect Park", "chillin' in hot tubs", "CAVES", "ice skating on lakes", "his cat (way too much)", "sleeping", "swimming with manatees"];
-
-function likes(){
-	var number = Math.ceil(Math.random()*8);
-	$('#about-image img').attr('src', '/images/about/' + number + '.jpeg');
-	$('#likes').html(images[number-1] + '.<br> What else does Travis like?');
+function init(){
+	if (window.location.hash){
+		sendToHash();
+	}
 }
-$(document).ready(function(){
-	$('pre').addClass("prettyprint linenums");
-	$('code').addClass("prettyprint");
-	prettyPrint();
-	likes();
-	
-	$('a#about-image').click(function(){
-		likes();
+
+function sendToHash(){
+	var location = window.location.hash.split("/");
+	sendToArea(location);
+}
+
+function sendToArea(location){
+	var position = $('#' + location[1]).offset().top;
+	$('html, body').animate({
+		scrollTop: position
 	});
 	
-	$('.work-accordion a').click(function(e){
+	if (location[2]){
+		if (location[1] == "work"){
+			openWork(work[location[2]]);
+		}
+		if (location[1] == "blog"){
+			openBlog(blog[location[2]]);
+		}
+	}
+	
+}
+
+function openWork(project){
+	console.log(project);
+}
+
+function openBlog(blogpost){
+	console.log(blogpost);
+}
+
+$(function(){
+	init();
+	
+	$('.navigation a').click( function(e){
 		e.preventDefault();
-		$('.active').removeClass('active');
-		var $this = $(this);
-		setTimeout(function(){
-			$this.addClass('active');
-		}, 250);
-		
+		window.location.hash = $(this).attr('href');
+		sendToHash();
 	});
 	
-	$('#filters a').click( function(e){
+	$('a.projectlink').click( function(e){
 		e.preventDefault();
-		$(this).parents('#filters').find('.activework').removeClass('activework');
-		$(this).addClass('activework');
-		var filterType = $(this).attr('data-filter');
-		$('.workitem').addClass('filtered');
-		$(filterType).removeClass('filtered');
+		window.location.hash = $(this).attr('href');
+		sendToHash();
 	});
-	var text;
-	
-	$('.sidebar a').hover( function(e){
-		var username = $(this).attr('data-hover');
-		text = $(this).html();
-		$(this).html(username);
-		var eltop = $(this).offset().top;
-		var elbottom = eltop + $(this).height();
-		var cursor = e.pageY;
-		var middle = ($(this).height() / 2) + eltop;
-		console.log("bottom " + elbottom);
-		console.log("middle " + middle);
-		console.log("top " + eltop);
-		
-		if(cursor < middle){
-			$(this).addClass('entertop');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('entertop');
-			}, 500);
-		}
-		else{
-			$(this).addClass('enterbottom');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('enterbottom');
-			}, 500);
-		}
-		
-	}, function(e){
-		$(this).html(text);
-		var eltop = $(this).offset().top;
-		var elbottom = eltop + $(this).height();
-		var cursor = e.pageY;
-		
-		if(cursor > elbottom){
-			$(this).addClass('leavebottom');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('leavebottom');
-			}, 500);
-		}
-		else{
-			$(this).addClass('leavetop');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('leavetop');
-			}, 500);
-		}
-		
-	});
-	
-	
 });
+
+

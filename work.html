@@ -1,19 +1,5 @@
 ---
-title: Work
+layout: default
+title: work
 permalink: /work/index.html
-layout: work_archive
 ---
-<div class="row">
-{% for post in site.categories.work %}
-<div class="span2 workitem {% for tag in post.tags %} {{ tag }} {% endfor %}">
-	<div class="work-wrapper">
-		<a href="{{ post.url }}">
-			<img src="/images/work/{{ post.image }}">
-			<h3 class="gradatebg">{{ post.title }}</h3>
-		</a>
-	</div>
-</div>
-
-
-{% endfor %}
-</div>

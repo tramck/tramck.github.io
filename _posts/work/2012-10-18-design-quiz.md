@@ -1,5 +1,5 @@
 ---              
-layout: work_entry
+layout: default
 category: work
 title: Should I Dump My Design?
 tags: development web

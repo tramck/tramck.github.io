@@ -54,7 +54,19 @@ body{
 }
 .header{
 	height: 800px;
-	background: #ccc;
+	background-image: url(../images/header.png);
+	.background-size(cover);
+	line-height: 800px;
+	
+	.logo{
+		width: 303px;
+		height: 150px;
+		background-image: url(../images/logo.png);
+		top: 325px;
+		position: absolute;
+		left: 50%;
+		margin-left: -151px;
+	}
 }
 .navigation{
 	background: @black;
@@ -71,5 +83,14 @@ body{
 	p{
 		font-size: 40px;
 		line-height: 1.2;
+	}
+}
+
+.work{
+	.project{
+		width: 25%;
+		height: 200px;
+		float: left;
+		.background-size(cover);
 	}
 }
