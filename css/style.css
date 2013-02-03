@@ -9287,6 +9287,10 @@ a.badge:hover {
 body {
   background: #efefef;
 }
+img {
+  width: 100%;
+  height: auto;
+}
 .content {
   background: #fff;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -9334,6 +9338,9 @@ body {
   font-size: 40px;
   line-height: 1.2;
 }
+.work {
+  position: relative;
+}
 .work .project {
   width: 25%;
   height: 200px;
@@ -9346,4 +9353,26 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.work .overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+}
+.work .overlay .content {
+  padding: 50px;
+}
+.work .overlay .content img {
+  margin-bottom: 10px;
+}
+.work .overlay .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 60px;
+  line-height: 60px;
+}
+.blog {
+  float: left;
 }

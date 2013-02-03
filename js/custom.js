@@ -28,6 +28,27 @@ function sendToArea(location){
 
 function openWork(project){
 	console.log(project);
+
+	$('#work-title').html(project.title);
+	
+	$(project.images).each( function(){
+		$('#work-images').append('<img src="/images/work/' + this + '">');
+	});
+	
+	$('#work-content').html(project.content);
+	
+	$('#work-overlay').fadeIn(1000);
+	
+	$('#work-overlay button.close').click( function(){
+		closeWork();
+	});
+}
+
+function closeWork(){
+	$('#work-overlay').fadeOut(400);
+	setTimeout( function(){
+		$('#work-content, #work-images, #work-title').empty();
+	}, 400);
 }
 
 function openBlog(blogpost){

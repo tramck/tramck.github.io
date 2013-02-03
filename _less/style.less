@@ -48,6 +48,11 @@ body{
 	background: #efefef;
 }
 
+img{
+	width: 100%;
+	height: auto;
+}
+
 .content{
 	background: #fff;
 	.box-shadow(0 0 1px rgba(0, 0, 0, .25));
@@ -87,10 +92,38 @@ body{
 }
 
 .work{
+	position: relative;
+	
 	.project{
 		width: 25%;
 		height: 200px;
 		float: left;
 		.background-size(cover);
 	}
+	.overlay{
+		display: none;
+		position: absolute;
+		width: 100%;
+		background: rgba(255,255,255,.95);
+		
+		.content{
+			padding: 50px;
+			
+			img{
+				margin-bottom: 10px;
+			}
+		}
+		
+		.close{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 60px;
+			line-height: 60px;
+		}
+	}
+}
+
+.blog{
+	float: left;
 }

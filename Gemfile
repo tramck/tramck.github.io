@@ -1,6 +1,5 @@
 source 'http://gemcutter.org'
 
-gem 'json'
 gem 'mini_magick'
 gem 'jekyll'
 gem 'rake'

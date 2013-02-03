@@ -19,6 +19,22 @@ title: Home
       <a class="projectlink" href="#{{ post.url }}">{{ post.title }}</a>
     </div>
   {% endfor %}
+  
+  <div id="work-overlay" class="overlay">
+    <div class="content">
+      <div class="row-fluid">
+        <div class="span8">
+          <h2 id="work-title"></h2>
+          <div id="work-images"></div>
+        </div>
+        <div class="span4" id="work-content">
+        </div>
+      </div>
+    </div>
+
+    
+    <button class="close">&times;</button>
+  </div>
 </div>
 <div class="blog" id="blog">
   {% for post in site.categories.blog %}

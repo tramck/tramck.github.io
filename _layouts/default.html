@@ -25,7 +25,8 @@
 {% for post in site.categories.work %}
     "{{ post.url | remove_first:'/work/' }}" : {
       title: "{{ post.title }}",
-      content: "{{ post.content | strip_newlines }}"
+      content: "{{ post.content | strip_newlines }}",
+      images: [{% for image in post.images %}"{{ image }}",{% endfor %}]
     },
 {% endfor %}
   };
