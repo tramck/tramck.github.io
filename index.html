@@ -2,25 +2,61 @@
 layout: default
 title: Home
 ---
-<div class="header">
-  <div class="logo"></div>
-</div>
-<div class="navigation">
-  <a href="#/about">About</a>
-  <a href="#/work">Work</a>
-  <a href="#/blog">Blog</a>
-</div>
-<div class="about" id="about">
-  <p>Travis McKinney is a designer/developer living in Brooklyn, NY and currently making badass shit for Red Antler. You can follow him on Twitter, Stack Overflow and Github. For freelancing inquiries or if you have any questions about his work, please contact him at travis.r.mckinney@gmail.com.</p>
-</div>
-<div class="work" id="work">
-  {% for post in site.categories.work %}
-    <div class="project" style="background-image: url(images/work/{{ post.image }});">
-      <a class="projectlink" href="#{{ post.url }}">{{ post.title }}</a>
+<div id="scroll">
+  <div class="container content">
+    <div class="header">
+      <div class="logo"></div>
     </div>
-  {% endfor %}
+    <div class="navigation">
+      <a href="#/about">About</a>
+      <a href="#/work">Work</a>
+      <a href="#/blog">Blog</a>
+    </div>
+    <div class="about" id="about">
+      <p>Travis McKinney is a designer/developer living in Brooklyn, NY and currently making badass shit for Red Antler. You can follow him on Twitter, Stack Overflow and Github. For freelancing inquiries or if you have any questions about his work, please contact him at travis.r.mckinney@gmail.com.</p>
+    </div>
+  </div>
   
-  <div id="work-overlay" class="overlay">
+  <div class="container content">
+    <div class="work" id="work">
+      {% for post in site.categories.work %}
+      <a class="projectlink" href="#{{ post.url }}">
+        <div class="project" style="background-image: url(images/work/bw/{{ post.image }});">
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+      
+
+    <div class="blog container" id="blog">
+      
+        {% for post in site.categories.blog %}
+          {% if forloop.first %}
+            <div class="row featured">
+              <div class="span4">
+                <h2>{{ post.title }}</h2>
+              </div>
+              <div class="span8">
+                <p>{{ post.excerpt }}</p>
+              </div>
+            </div>
+          {% elsif forloop.index < 10 %}
+            {% cycle '<div class="row">', nil, nil, nil %}
+              <div class="span3">
+              	<h2>{{ post.title }}</h2>
+              	<p>{{ post.excerpt }}</p>
+              </div>
+            {% cycle nil, nil, nil, '</div>' %}
+          {% endif %}
+        {% endfor %}
+      <a href="#">View More Posts <i class="icon-chevron-right"></i></a>
+    </div>
+
+</div>
+
+<div id="work-overlay" class="overlay">
+  <div class="container">
     <div class="content">
       <div class="row-fluid">
         <div class="span8">
@@ -31,16 +67,8 @@ title: Home
         </div>
       </div>
     </div>
-
-    
-    <button class="close">&times;</button>
   </div>
-</div>
-<div class="blog" id="blog">
-  {% for post in site.categories.blog %}
-  	<h2>{{ post.title }}</h2>
-  	<p>{{ post.excerpt }}</p>
-  {% endfor %}
+  <button class="close">&times;</button>
 </div>
 
 

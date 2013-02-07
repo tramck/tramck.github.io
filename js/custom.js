@@ -10,8 +10,10 @@ function sendToHash(){
 }
 
 function sendToArea(location){
-	var position = $('#' + location[1]).offset().top;
-	$('html, body').animate({
+	var currentScroll = $('#scroll').scrollTop();
+	var position = currentScroll + $('#' + location[1]).offset().top;
+	
+	$('#scroll').animate({
 		scrollTop: position
 	}, 1000);
 	
@@ -46,7 +48,6 @@ function openWork(project){
 
 function closeWork(){
 	window.location.hash = "#/work";
-	sendToHash();
 	$('#work-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#work-content, #work-images, #work-title').empty();
@@ -59,6 +60,8 @@ function openBlog(blogpost){
 
 $(function(){
 	init();
+	
+	
 	
 	$('.navigation a').click( function(e){
 		e.preventDefault();

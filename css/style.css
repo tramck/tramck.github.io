@@ -9286,10 +9286,17 @@ a.badge:hover {
 }
 body {
   background: #efefef;
+  overflow: hidden;
 }
 img {
   width: 100%;
   height: auto;
+}
+#scroll {
+  overflow: scroll;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 .content {
   background: #fff;
@@ -9324,15 +9331,20 @@ img {
 }
 .navigation {
   background: #000000;
-  padding: 5px 0;
+  padding: 16px 0;
   color: #fff;
   text-align: center;
 }
 .navigation a {
   padding: 0 10px;
+  padding: 0 10px;
+  color: #fff;
+  line-height: 1;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 .about {
-  padding: 100px 5%;
+  padding: 100px 50px;
 }
 .about p {
   font-size: 40px;
@@ -9341,9 +9353,16 @@ img {
 .work {
   position: relative;
 }
+.work a.projectlink:hover .project {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
 .work .project {
   width: 25%;
-  height: 200px;
+  height: 0;
+  padding-top: 25%;
   float: left;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -9353,26 +9372,65 @@ img {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
-.work .overlay {
+.overlay {
   display: none;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  height: 100%;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.97);
+  overflow: auto;
 }
-.work .overlay .content {
+.overlay .content {
+  background: none;
   padding: 50px;
 }
-.work .overlay .content img {
+.overlay .content img {
   margin-bottom: 10px;
 }
-.work .overlay .close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+.overlay .close {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 100px;
+  height: 100px;
   font-size: 60px;
-  line-height: 60px;
+  line-height: 100px;
+  text-align: center;
 }
 .blog {
-  float: left;
+  padding: 100px 50px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+}
+.blog .featured {
+  margin-bottom: 100px;
+}
+.blog .featured h2 {
+  font-size: 60px;
+  line-height: .9;
+  text-transform: uppercase;
+  font-family: 'Colfax-Black', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.blog .featured p {
+  font-size: 40px;
+  line-height: 1.1;
 }

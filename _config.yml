@@ -54,3 +54,10 @@ kramdown:
 exclude: Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
 
 url: http://0.0.0.0:4000
+
+mini_magick:
+  workthumbs:
+    source: images/work/src
+    destination: images/work/bw
+    commands:
+      - colorspace: "Gray"
