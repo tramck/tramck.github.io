@@ -35,7 +35,9 @@ title: Home
           {% if forloop.first %}
             <div class="row featured">
               <div class="span4">
-                <h2>{{ post.title }}</h2>
+                <a class="projectlink" href="#{{ post.url }}">
+                  <h2>{{ post.title }}</h2>
+                </a>
               </div>
               <div class="span8">
                 <p>{{ post.excerpt }}</p>
@@ -44,7 +46,9 @@ title: Home
           {% elsif forloop.index < 10 %}
             {% cycle '<div class="row">', nil, nil, nil %}
               <div class="span3">
-              	<h2>{{ post.title }}</h2>
+              	<a class="projectlink" href="#{{ post.url }}">
+                  <h2>{{ post.title }}</h2>
+                </a>
               	<p>{{ post.excerpt }}</p>
               </div>
             {% cycle nil, nil, nil, '</div>' %}

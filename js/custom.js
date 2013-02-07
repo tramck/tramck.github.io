@@ -74,6 +74,7 @@ $(function(){
 		window.location.hash = $(this).attr('href');
 		sendToHash();
 	});
+	
 });
 
 
