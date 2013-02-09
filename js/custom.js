@@ -1,7 +1,11 @@
+var navOffset;
+var fixed;
 function init(){
 	if (window.location.hash){
 		sendToHash();
 	}
+	windowResize();
+	fixed = false;
 }
 
 function sendToHash(){
@@ -58,10 +62,12 @@ function openBlog(blogpost){
 	console.log(blogpost);
 }
 
+function windowResize(){
+	navOffset = $('#navigation').offset().top;
+}
+
 $(function(){
 	init();
-	
-	
 	
 	$('.navigation a').click( function(e){
 		e.preventDefault();
@@ -75,6 +81,21 @@ $(function(){
 		sendToHash();
 	});
 	
+	$('#scroll').scroll( function(){
+		var top = $('#scroll').scrollTop();
+		if (top > navOffset && !fixed) {
+			fixed = true;
+			$('body').addClass('fix-nav');
+		}
+		else if (top < navOffset && fixed){
+			fixed = false;
+			$('body').removeClass('fix-nav');
+		}
+	});
+	
+	$(window).resize( function(){
+		windowResize();
+	});
 });
 
 

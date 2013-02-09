@@ -41,6 +41,9 @@
 @import "_lib/bootstrap";
 @import "_lib/responsive";
 
+@iconSpritePath: "../images/glyphicons-halflings.png";
+@iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+
 @sansFontFamily: 'Colfax-Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
 @colfaxMedium: 'Colfax-Medium', "Helvetica Neue", Helvetica, Arial, sans-serif;
 @colfaxBlack: 'Colfax-Black', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -80,6 +83,9 @@ img{
 		margin-left: -151px;
 	}
 }
+.nav-wrapper{
+	position: relative;
+}
 .navigation{
 	background: @black;
 	padding: 16px 0;
@@ -93,6 +99,13 @@ img{
 		line-height: 1;
 		font-size: 16px;
 		text-transform: uppercase;
+	}
+	
+	.fix-nav &{
+		position: fixed;
+		top: 0;
+		width: 1170px;
+		z-index: 1;
 	}
 }
 .about{
