@@ -4,8 +4,7 @@ This is the portfolio site and blog of Designer and Web Developer [Travis McKinn
 
 ## Todo
 
-- Figure out thumbnailing plugin that grayscales thumbnails
-- Un-brake back button
+- Un-brake back button (jQuery bbq or history.js??)
 
 
 ## Installing Dependencies
