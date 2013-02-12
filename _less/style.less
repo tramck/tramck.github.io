@@ -48,11 +48,16 @@
 @colfaxMedium: 'Colfax-Medium', "Helvetica Neue", Helvetica, Arial, sans-serif;
 @colfaxBlack: 'Colfax-Black', "Helvetica Neue", Helvetica, Arial, sans-serif;
 
+@linkColor: rgb(28, 224, 224);
+@linkColorHover: darken(@linkColor, 5%);
+
 body{
 	background: #efefef;
 	overflow: hidden;
 }
-
+a:hover{
+	text-decoration: none;
+}
 img{
 	width: 100%;
 	height: auto;
@@ -252,4 +257,17 @@ img{
 		padding-left: 0;
 		padding-right: 0;
 	}
+	.navigation{
+		width: 100%;
+	}
+	.about{
+		padding: 20px;
+		
+		.fixnav &{
+			padding-top: 68px;
+		}
+		p{
+			font-size: 20px;
+		}
+	} 
 }
