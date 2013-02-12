@@ -40,8 +40,6 @@ function sendToArea(location){
 }
 
 function openWork(project){
-	console.log(project);
-
 	$('#work-title').html(project.title);
 	
 	$(project.images).each( function(){
@@ -72,6 +70,35 @@ function openBlog(blogpost){
 function windowResize(){
 	navOffset = $('#header').height();
 	scrollSpy();
+	
+	var wW = $(window).width();
+	if (wW >= 1200) {
+		$('#blogposts').masonry({
+			itemSelector: '.span3',
+			masonry: {
+				columnWidth: 300
+			}
+		});
+	}
+	else if (wW > 979){
+		$('#blogposts').masonry({
+			itemSelector: '.span3',
+			masonry: {
+				columnWidth: 240
+			}
+		});
+	}
+	else if (wW > 767){
+		$('#blogposts').masonry({
+			itemSelector: '.span3',
+			masonry: {
+				columnWidth: 186
+			}
+		});
+	}
+	
+	
+	
 }
 
 function scrollSpy(){
@@ -80,12 +107,10 @@ function scrollSpy(){
 		scrollSpyTargets[i] = $(targetName).offset().top;
 	});
 	if (scrollSpyTargets[scrollSpyActive+1] < 49) {
-		console.log("breakpoint!");
 		scrollSpyActive++;
 		scrollSpyActivate(navLinks[scrollSpyActive]);
 	}
 	else if (scrollSpyTargets[scrollSpyActive] > 49) {
-		console.log("breakpoint!");
 		scrollSpyActive--;
 		scrollSpyActivate(navLinks[scrollSpyActive]);
 	}

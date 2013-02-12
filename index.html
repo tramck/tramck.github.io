@@ -34,6 +34,7 @@ title: Home
     <div class="blog container" id="blog">
       
         {% for post in site.categories.blog %}
+        
           {% if forloop.first %}
           <div class="blogpost featured">
             <div class="row-fluid">
@@ -47,8 +48,10 @@ title: Home
               </div>
             </div>
           </div>
-          {% elsif forloop.index < 10 %}
-            {% cycle '<div class="row">', nil, nil, nil %}
+          <div class="row" id="blogposts">
+          <!-- begin loop -->
+          {% endif %}
+            
               <div class="span3">
                 <div class="blogpost">
                 	<a class="projectlink" href="#{{ post.url }}">
@@ -57,10 +60,15 @@ title: Home
                 	<p>{{ post.excerpt }}</p>
               	</div>
               </div>
-            {% cycle nil, nil, nil, '</div>' %}
-          {% endif %}
+            
+          
+          
         {% endfor %}
-      <a href="#">View More Posts <i class="icon-chevron-right"></i></a>
+        <!-- end loop -->
+        </div>
+  
+            <a href="#">View More Posts</a>
+
     </div>
 
 </div>

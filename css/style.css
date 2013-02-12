@@ -9308,7 +9308,7 @@ img {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
 }
 .header {
-  height: 800px;
+  height: 600px;
   background-image: url(../images/header.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -9318,7 +9318,7 @@ img {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  line-height: 800px;
+  line-height: 600px;
 }
 .header .logo {
   width: 303px;
@@ -9455,7 +9455,7 @@ img {
   -webkit-box-shadow: 0 1px 1px #cccccc;
   -moz-box-shadow: 0 1px 1px #cccccc;
   box-shadow: 0 1px 1px #cccccc;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .blog .blogpost.featured {
   padding: 60px;
@@ -9470,5 +9470,26 @@ img {
 @media (min-width: 1200px) {
   .navigation {
     width: 1170px;
+  }
+  .blogpost {
+    margin-bottom: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .header {
+    height: 400px;
+    line-height: 400px;
+  }
+  .navigation {
+    width: 724px;
+  }
+  .blogpost {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -60,4 +60,5 @@ mini_magick:
     source: images/work/src
     destination: images/work/bw
     commands:
-      - colorspace: "Gray"
+      - colorspace: "Gray" 
+      
