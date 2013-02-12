@@ -40,6 +40,7 @@ title: Home
             <div class="row-fluid">
               <div class="span4">
                 <a class="projectlink" href="#{{ post.url }}">
+                  <h4>{{ post.date | date: "%B %d, %Y" }}</h4>
                   <h2>{{ post.title }}</h2>
                 </a>
               </div>
@@ -50,10 +51,13 @@ title: Home
           </div>
           <div class="row" id="blogposts">
           <!-- begin loop -->
-          {% endif %}
+          {% else %}
             
               <div class="span3">
                 <div class="blogpost">
+                  <a href="#{{ post.url }}" class="postimage">
+                    <img src="images/blog/{{ post.image }}">
+                  </a>
                 	<a class="projectlink" href="#{{ post.url }}">
                     <h2>{{ post.title }}</h2>
                   </a>
@@ -62,7 +66,7 @@ title: Home
               </div>
             
           
-          
+          {% endif %}
         {% endfor %}
         <!-- end loop -->
         </div>

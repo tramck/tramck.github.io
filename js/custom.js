@@ -3,6 +3,8 @@ var fixed;
 var scrollSpyTargets = [];
 var navLinks;
 var scrollSpyActive;
+var workOpen = false;
+var blogOpen = false;
 
 function init(){
 	if (window.location.hash){
@@ -36,10 +38,17 @@ function sendToArea(location){
 			openBlog(blog[location[2]]);
 		}
 	}
+	else if (workOpen) {
+		closeWork();
+	}
+	else if (blogOpen) {
+		closeBlog();
+	}
 	
 }
 
 function openWork(project){
+	workOpen = true;
 	$('#work-title').html(project.title);
 	
 	$(project.images).each( function(){
@@ -56,6 +65,7 @@ function openWork(project){
 }
 
 function closeWork(){
+	workOpen = false;
 	window.location.hash = "#/work";
 	$('#work-overlay').fadeOut(400);
 	setTimeout( function(){
@@ -72,28 +82,29 @@ function windowResize(){
 	scrollSpy();
 	
 	var wW = $(window).width();
+	var $container = $('#blogposts');
 	if (wW >= 1200) {
-		$('#blogposts').masonry({
-			itemSelector: '.span3',
-			masonry: {
-				columnWidth: 300
-			}
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 300
+		  });
 		});
 	}
 	else if (wW > 979){
-		$('#blogposts').masonry({
-			itemSelector: '.span3',
-			masonry: {
-				columnWidth: 240
-			}
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 240
+		  });
 		});
 	}
 	else if (wW > 767){
-		$('#blogposts').masonry({
-			itemSelector: '.span3',
-			masonry: {
-				columnWidth: 186
-			}
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 186
+		  });
 		});
 	}
 	
@@ -155,6 +166,10 @@ $(function(){
 		windowResize();
 	});
 	
+	// dealing with history
+	$(window).hashchange( function(){
+		sendToHash();
+	});
 });
 
 
