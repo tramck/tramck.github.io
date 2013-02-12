@@ -4,14 +4,14 @@ title: Home
 ---
 <div id="scroll">
   <div class="container content">
-    <div class="header">
+    <div class="header" id="header">
       <div class="logo"></div>
     </div>
     <div class="container">
       <div class="navigation" id="navigation">
-        <a href="#/about">About</a>
-        <a href="#/work">Work</a>
-        <a href="#/blog">Blog</a>
+        <a href="#/about" data-spy="#about">About</a>
+        <a href="#/work" data-spy="#work">Work</a>
+        <a href="#/blog" data-spy="#blog">Blog</a>
       </div>
     </div>
     <div class="about" id="about">
@@ -35,7 +35,8 @@ title: Home
       
         {% for post in site.categories.blog %}
           {% if forloop.first %}
-            <div class="row featured">
+          <div class="blogpost featured">
+            <div class="row-fluid">
               <div class="span4">
                 <a class="projectlink" href="#{{ post.url }}">
                   <h2>{{ post.title }}</h2>
@@ -45,13 +46,16 @@ title: Home
                 <p>{{ post.excerpt }}</p>
               </div>
             </div>
+          </div>
           {% elsif forloop.index < 10 %}
             {% cycle '<div class="row">', nil, nil, nil %}
               <div class="span3">
-              	<a class="projectlink" href="#{{ post.url }}">
-                  <h2>{{ post.title }}</h2>
-                </a>
-              	<p>{{ post.excerpt }}</p>
+                <div class="blogpost">
+                	<a class="projectlink" href="#{{ post.url }}">
+                    <h2>{{ post.title }}</h2>
+                  </a>
+                	<p>{{ post.excerpt }}</p>
+              	</div>
               </div>
             {% cycle nil, nil, nil, '</div>' %}
           {% endif %}

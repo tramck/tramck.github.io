@@ -83,36 +83,39 @@ img{
 		margin-left: -151px;
 	}
 }
-.nav-wrapper{
-	position: relative;
+.fix-nav{
+	.navigation{
+		position: fixed;
+		top: 0;
+		z-index: 1;		
+	}
 }
+
 .navigation{
+	position: absolute;
+	width: 940px;
 	background: @black;
-	padding: 16px 0;
 	color: #fff;
-	text-align: center;
 	
 	a{
-		padding: 0 10px;
-		padding: 0 10px;
+		padding: 16px;
 		color: #fff;
 		line-height: 1;
 		font-size: 16px;
 		text-transform: uppercase;
-	}
-	
-	.fix-nav &{
-		position: fixed;
-		top: 0;
-		width: 1170px;
-		z-index: 1;
+		float: left;
+		
+		&.active{
+			border-bottom: 4px solid #0ff;
+			padding-bottom: 12px;
+		}
 	}
 }
 .about{
-	padding: 100px 50px;
+	padding: 152px 50px 100px 50px;
 	p{
 		font-size: 40px;
-		line-height: 1.2;
+		line-height: 1.4;
 	}
 }
 
@@ -124,6 +127,7 @@ img{
 		&:hover{
 			.project{
 				.opacity(100);
+				.box-shadow(inset 0 1px 2px rgba(0,0,0,.2));
 			}
 		}
 		
@@ -173,9 +177,6 @@ img{
 }
 
 .blog{
-	padding: 100px 50px;
-	.content;
-	
 	.projectlink{
 		color: #000;
 		&:hover{
@@ -188,17 +189,31 @@ img{
 		line-height: .9;
 		text-transform: uppercase;
 	}
-	.featured{
-		margin-bottom: 100px;
+	.blogpost{
+		padding: 20px;
+		background: #fff;
+		.box-shadow(0 1px 1px #ccc);
+		margin-bottom: 30px;
 		
-		h2{
-			font-size: 60px;
-			
+		&.featured{
+			padding: 60px;
+
+			h2{
+				font-size: 60px;
+
+			}
+
+			p{
+				font-size: 40px;
+				line-height: 1.1;
+			}
 		}
-		
-		p{
-			font-size: 40px;
-			line-height: 1.1;
-		}
+	}
+	
+	
+}
+@media (min-width: 1200px) {
+	.navigation {
+		width: 1170px;
 	}
 }

@@ -1,6 +1,7 @@
 ---              
 layout: blog
-title: RED ANTLER’S AMAZING 5 YEAR ANNIVERSARY BASH
+title: RED ANTLER’S AMAZING 5 YEAR BIRTHDAY BASH
+permalink: /blog/red-antlers-5-year-anniversary-bash
 category: blog
 excerpt: Last Thursday was the 5th birthday party of Red Antler. It was honestly, probably the best party I have ever been a part of.
 image: redantler5.jpeg
