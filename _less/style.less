@@ -89,13 +89,17 @@ img{
 		top: 0;
 		z-index: 1;		
 	}
+	.about{
+		padding-top: 148px;
+	}
 }
 
 .navigation{
-	position: absolute;
+	position: relative;
 	width: 940px;
-	background: @black;
+	background: #000000;
 	color: #fff;
+	float: left;
 	
 	a{
 		padding: 16px;
@@ -105,6 +109,11 @@ img{
 		text-transform: uppercase;
 		float: left;
 		
+		&:hover{
+			text-decoration: none;
+			color: #ddd;
+		}
+		
 		&.active{
 			border-bottom: 4px solid #0ff;
 			padding-bottom: 12px;
@@ -112,7 +121,7 @@ img{
 	}
 }
 .about{
-	padding: 152px 50px 100px 50px;
+	padding: 100px 50px 100px 50px;
 	p{
 		font-size: 40px;
 		line-height: 1.4;

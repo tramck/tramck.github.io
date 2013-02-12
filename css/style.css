@@ -9334,11 +9334,15 @@ img {
   top: 0;
   z-index: 1;
 }
+.fix-nav .about {
+  padding-top: 148px;
+}
 .navigation {
-  position: absolute;
+  position: relative;
   width: 940px;
   background: #000000;
   color: #fff;
+  float: left;
 }
 .navigation a {
   padding: 16px;
@@ -9348,12 +9352,16 @@ img {
   text-transform: uppercase;
   float: left;
 }
+.navigation a:hover {
+  text-decoration: none;
+  color: #ddd;
+}
 .navigation a.active {
   border-bottom: 4px solid #0ff;
   padding-bottom: 12px;
 }
 .about {
-  padding: 152px 50px 100px 50px;
+  padding: 100px 50px 100px 50px;
 }
 .about p {
   font-size: 40px;
