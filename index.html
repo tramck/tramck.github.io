@@ -23,7 +23,9 @@ title: Home
     <div class="work" id="work">
       {% for post in site.categories.work %}
       <a class="projectlink" href="#{{ post.url }}">
-        <div class="project" style="background-image: url(images/work/bw/{{ post.image }});">
+        <div class="project">
+          <div class="bw" style="background-image:url(images/work/bw/{{ post.image }})"></div>
+          <div class="color" style="background-image:url(images/work/src/{{ post.image }})"></div>
         </div>
       </a>
       {% endfor %}
