@@ -1,3 +1,10 @@
+var disqus_shortname = 'travmckinney';
+(function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+
 var navOffset;
 var fixed;
 var scrollSpyTargets = [];
@@ -74,9 +81,37 @@ function closeWork(){
 }
 
 function openBlog(blogpost){
-	console.log(blogpost);
+	blogOpen = true;
+	$('#blog-title').html(blogpost.title);
+	
+	$('#blog-content').html(blogpost.content).prepend('<img src="/images/blog/' + blogpost.image + '">');
+	
+	setTimeout(function(){
+		DISQUS.reset({
+		  reload: true,
+		  config: function () {  
+		    this.page.identifier = window.location.href;  
+		    this.page.url = window.location.href;
+		  }
+		});
+	}, 400);
+	
+	
+	$('#blog-overlay').fadeIn(1000);
+	
+	$('#blog-overlay button.close').click( function(){
+		closeBlog();
+	});
 }
 
+function closeBlog () {
+	blogOpen = false;
+	window.location.hash = "#/blog";
+	$('#blog-overlay').fadeOut(400);
+	setTimeout( function(){
+		$('#blog-content, #blog-title').empty();
+	}, 400);
+}
 function windowResize(){
 	navOffset = $('#header').height();
 	scrollSpy();
@@ -128,7 +163,6 @@ function scrollSpy(){
 }
 
 function scrollSpyActivate(active){
-	console.log(active);
 	$('#navigation .active').removeClass('active');
 	$(active).addClass('active');
 }

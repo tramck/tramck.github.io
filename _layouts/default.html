@@ -33,7 +33,8 @@
 {% for post in site.categories.blog %}
     "{{ post.url | remove_first:'/blog/' }}" : {
       title: "{{ post.title }}",
-      content: "{{ post.content | strip_newlines }}"
+      content: "{{ post.content | strip_newlines }}",
+      image: "{{ post.image }}"
     },
 {% endfor %}
   };

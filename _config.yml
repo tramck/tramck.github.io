@@ -60,5 +60,5 @@ mini_magick:
     source: images/work/src
     destination: images/work/bw
     commands:
-      - modulate: "100, 20" 
+      - modulate: "80, 20" 
       
