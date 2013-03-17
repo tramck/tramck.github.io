@@ -34,7 +34,7 @@ namespace :deploy do
     puts "*** Building the site ***"
     system "jekyll --url http://staging.travmckinney.com --no-auto" 
     puts "*** Deploying the site ***"
-    system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html"
+    system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html/staging"
   end
   
 end
