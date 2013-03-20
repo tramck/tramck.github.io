@@ -33,6 +33,8 @@ To add a project to the portfolio run `rake project[project-name]`
 
 I am using a rake command with rsync and ssh to deploy this site. To deploy, add a file in the root called "_deployvariables.rb" where you can set `@ssh_user`, `@remote_root`, `@production_url` and `@staging_url` variables.
 
+You will then be able to deploy using rake commands `rake deploy:production` or `rake deploy:staging`.
+
 ## Comments with Disqus
 
 I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
