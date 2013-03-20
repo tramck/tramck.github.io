@@ -86,6 +86,10 @@ function openBlog(blogpost){
 	
 	$('#blog-content').html(blogpost.content).prepend('<img src="' + blogpost.image + '">');
 	
+	$('#blog-content pre').addClass("prettyprint linenums");
+	$('#blog-content code').addClass("prettyprint");
+	prettyPrint();
+	
 	setTimeout(function(){
 		DISQUS.reset({
 		  reload: true,
