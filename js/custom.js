@@ -37,7 +37,13 @@ function sendToArea(location){
 		scrollTop: position - 48
 	}, 1000);
 	
-	if (location[2]){
+	if (workOpen) {
+		closeWork();
+	}
+	else if (blogOpen) {
+		closeBlog();
+	}
+	else if (location[2]){
 		if (location[1] == "work"){
 			openWork(work[location[2]]);
 		}
@@ -45,37 +51,22 @@ function sendToArea(location){
 			openBlog(blog[location[2]]);
 		}
 	}
-	else if (workOpen) {
-		closeWork();
-	}
-	else if (blogOpen) {
-		closeBlog();
-	}
-	
 }
 
 function openWork(project){
 	document.title = "Travis McKinney | " + project.title;
 	workOpen = true;
 	$('#work-title').html(project.title);
-	
 	$(project.images).each( function(){
 		$('#work-images').append('<img src="' + this + '">');
 	});
-	
 	$('#work-content').html(project.content);
-	
 	$('#work-overlay').fadeIn(1000);
-	
-	$('#work-overlay button.close').click( function(){
-		closeWork();
-	});
 }
 
 function closeWork(){
 	document.title = "Travis McKinney | Brooklyn based designer and developer";
 	workOpen = false;
-	window.location.hash = "#!/work";
 	$('#work-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#work-content, #work-images, #work-title').empty();
@@ -86,13 +77,10 @@ function openBlog(blogpost){
 	blogOpen = true;
 	document.title = "Travis McKinney | " + blogpost.title;
 	$('#blog-title').html(blogpost.title);
-	
 	$('#blog-content').html(blogpost.content).prepend('<img src="' + blogpost.image + '">');
-	
 	$('#blog-content pre').addClass("prettyprint linenums");
 	$('#blog-content code').addClass("prettyprint");
 	prettyPrint();
-	
 	setTimeout(function(){
 		DISQUS.reset({
 		  reload: true,
@@ -102,24 +90,18 @@ function openBlog(blogpost){
 		  }
 		});
 	}, 400);
-	
-	
 	$('#blog-overlay').fadeIn(1000);
-	
-	$('#blog-overlay button.close').click( function(){
-		closeBlog();
-	});
 }
 
 function closeBlog () {
 	document.title = "Travis McKinney | Brooklyn based designer and developer";
 	blogOpen = false;
-	window.location.hash = "#!/blog";
 	$('#blog-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#blog-content, #blog-title').empty();
 	}, 400);
 }
+
 function windowResize(){
 	navOffset = $('#header').height();
 	scrollSpy();
@@ -181,13 +163,11 @@ $(function(){
 	$('.navigation a').click( function(e){
 		e.preventDefault();
 		window.location.hash = $(this).attr('href');
-		sendToHash();
 	});
 	
 	$('a.projectlink').click( function(e){
 		e.preventDefault();
 		window.location.hash = $(this).attr('href');
-		sendToHash();
 	});
 	
 	$('#scroll').scroll( function(){
