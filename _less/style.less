@@ -73,16 +73,16 @@ img{
 	.box-shadow(0 0 1px rgba(0, 0, 0, .25));
 }
 .header{
-	height: 600px;
+	height: 480px;
 	background-image: url(../images/header.png);
 	.background-size(cover);
-	line-height: 600px;
+	line-height: 480px;
 	
 	.logo{
 		width: 303px;
 		height: 150px;
 		background-image: url(../images/logo.png);
-		top: 325px;
+		top: 165px;
 		position: absolute;
 		left: 50%;
 		margin-left: -151px;
@@ -92,7 +92,11 @@ img{
 	.navigation{
 		position: fixed;
 		top: 0;
-		z-index: 1;		
+		z-index: 1;	
+		
+		.nav-logo{
+			right: 0px;
+		}	
 	}
 	.about{
 		padding-top: 148px;
@@ -105,6 +109,7 @@ img{
 	background: #000000;
 	color: #fff;
 	float: left;
+	overflow: hidden;
 	
 	a{
 		.transition(all .25s linear);
@@ -124,6 +129,15 @@ img{
 			border-bottom: 4px solid #0ff;
 			padding-bottom: 12px;
 		}
+	}
+	.nav-logo{
+		position: absolute;
+		top: 0;
+		right: -80px;
+		width: 80px;
+		height: 100%;
+		background: url(../images/logo-small.png) 18px 14px no-repeat @linkColor;
+		.transition(right .25s ease-in-out);
 	}
 }
 .about{
@@ -276,6 +290,25 @@ img{
 		}
 	}
 }
+
+.footer{
+	text-align: center;
+	padding: 40px 0;
+	p{
+		display: inline-block;
+		border: 3px solid #333;
+		padding: 20px;
+		a{
+			color: #000;
+			text-decoration: underline;
+			&:hover{
+				color: #000;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
 @media (min-width: 1200px) {
 	.navigation {
 		width: 1170px;
@@ -288,12 +321,35 @@ img{
 	.header{
 		height: 400px;
 		line-height: 400px;
+		
+		.logo{
+			top: 135px;
+		}
 	}
 	.navigation {
 		width: 724px;
 	}
-	.blogpost{
-		margin-bottom: 30px;
+	.blog{
+		.blogpost{
+			margin-bottom: 30px;
+
+			h2{
+				font-size: 20px;
+			}
+
+			&.featured{
+				padding: 40px;
+				h2{
+					font-size: 40px;
+				}
+				h4{
+					margin: 5px 0;
+				}
+				p{
+					font-size: 28px;
+				}
+			}
+		}
 	}
 }
 @media (max-width: 767px) {
@@ -301,17 +357,51 @@ img{
 		padding-left: 0;
 		padding-right: 0;
 	}
+	.header{
+		display: none;
+	}
 	.navigation{
 		width: 100%;
+		position: fixed;
+		top: 0;
+		z-index: 1;
+		
+		a{
+			font-size: 14px;
+		}
+		.nav-logo{
+			right: 0px;
+		}
 	}
 	.about{
-		padding: 20px;
+		padding: 68px 20px 20px 20px;
 		
-		.fixnav &{
-			padding-top: 68px;
-		}
 		p{
 			font-size: 20px;
+			text-align: center;
+			padding: 30px 0;
 		}
 	} 
+	.work .project{
+		width: 50%;
+	}
+	.blog{
+		.blogpost{
+			margin-bottom: 0;
+			padding-bottom: 50px;
+			
+			&.featured{
+				padding: 20px 20px 50px 20px;
+				h4{
+					font-size: 13px;
+				}
+				h2{
+					font-size: 35px;
+				}
+				p{
+					font-size: 20px;
+				}
+			}
+		}
+	}
 }
