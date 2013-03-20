@@ -2,10 +2,6 @@
 
 This is the portfolio site and blog of Designer and Web Developer [Travis McKinney](travmckinney.com).
 
-## TO DO
-
-- Figure out why images are showing twice in project pages
-
 
 ## Installing Dependencies
 

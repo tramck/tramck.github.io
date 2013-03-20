@@ -24,7 +24,7 @@ namespace :deploy do
   desc "Builds and deploys to production"
   task :production do
     puts "*** Building the site ***"
-    system "jekyll --url http://travmckinney.com --no-auto" 
+    system "jekyll --url #{@production_url} --no-auto" 
     puts "*** Deploying the site ***"
     system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html"
   end
@@ -32,7 +32,7 @@ namespace :deploy do
   desc "Builds and deploys to staging"
   task :staging do
     puts "*** Building the site ***"
-    system "jekyll --url http://staging.travmckinney.com --no-auto" 
+    system "jekyll --url #{@staging_url} --no-auto" 
     puts "*** Deploying the site ***"
     system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html/staging"
   end
