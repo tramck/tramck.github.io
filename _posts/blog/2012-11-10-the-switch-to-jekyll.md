@@ -1,11 +1,11 @@
 ---              
-layout: blog
+layout: default
 title: The Switch to Jekyll
 category: blog
-excerpt: Jekyll is a static site generator that runs on ruby and the liquid templating system. I recently switched from Wordpress to Jekyll.
+excerpt: Jekyll is a static site generator built in ruby and the liquid templating system. I recently switched from Wordpress to Jekyll.
 image: jekyll.png
 ---
-[Jekyll](http://jekyllrb.com/) is a static site generator that runs on ruby and the [liquid templating system](http://liquidmarkup.org/). I recently switched from Wordpress to Jekyll. I did this for a few reasons:
+[Jekyll](http://jekyllrb.com/) is a static site generator built in ruby and the [liquid templating system](http://liquidmarkup.org/). I recently switched from Wordpress to Jekyll. I did this for a few reasons:
 
 * All of the data in my site can now be versioned in git ([see github repo](https://github.com/braznaavtrav/travmckinney-jekyll))
 * Since the site is now just static html files, it's virtually hack-proof

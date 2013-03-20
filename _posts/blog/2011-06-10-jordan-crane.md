@@ -1,5 +1,5 @@
 ---              
-layout: blog
+layout: default
 title: Jordan Crane
 category: blog
 excerpt: Alternative comic book writer and illustrator Jordan Crane has recently become a great inspiration of mine.
