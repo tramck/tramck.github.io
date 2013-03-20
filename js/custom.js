@@ -41,7 +41,7 @@ function sendToArea(location){
 		if (location[1] == "work"){
 			openWork(work[location[2]]);
 		}
-		if (location[1] == "blog"){
+		else if (location[1] == "blog"){
 			openBlog(blog[location[2]]);
 		}
 	}
@@ -59,7 +59,7 @@ function openWork(project){
 	$('#work-title').html(project.title);
 	
 	$(project.images).each( function(){
-		$('#work-images').append('<img src="/images/work/' + this + '">');
+		$('#work-images').append('<img src="' + this + '">');
 	});
 	
 	$('#work-content').html(project.content);
@@ -84,7 +84,7 @@ function openBlog(blogpost){
 	blogOpen = true;
 	$('#blog-title').html(blogpost.title);
 	
-	$('#blog-content').html(blogpost.content).prepend('<img src="/images/blog/' + blogpost.image + '">');
+	$('#blog-content').html(blogpost.content).prepend('<img src="' + blogpost.image + '">');
 	
 	setTimeout(function(){
 		DISQUS.reset({

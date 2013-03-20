@@ -24,7 +24,7 @@
     "{{ post.url | remove_first:'/work/' }}" : {
       title: "{{ post.title }}",
       content: "{{ post.content | strip_newlines }}",
-      images: [{% for image in post.images %}"{{ image }}",{% endfor %}]
+      images: [{% for image in post.images %}"{{ site.url }}/images/work/{{ image }}",{% endfor %}]
     },
 {% endfor %}
   };
@@ -34,7 +34,7 @@
     "{{ post.url | remove_first:'/blog/' }}" : {
       title: "{{ post.title }}",
       content: "{{ post.content | strip_newlines }}",
-      image: "{{ post.image }}"
+      image: "{{ site.url }}/images/blog/{{ post.image }}"
     },
 {% endfor %}
   };
