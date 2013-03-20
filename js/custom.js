@@ -1,89 +1,197 @@
-var images = ["camping", "Prospect Park", "chillin' in hot tubs", "CAVES", "ice skating on lakes", "his cat (way too much)", "sleeping", "swimming with manatees"];
+var disqus_shortname = 'travmckinney';
+(function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 
-function likes(){
-	var number = Math.ceil(Math.random()*8);
-	$('#about-image img').attr('src', '/images/about/' + number + '.jpeg');
-	$('#likes').html(images[number-1] + '.<br> What else does Travis like?');
+var navOffset;
+var fixed;
+var scrollSpyTargets = [];
+var navLinks;
+var scrollSpyActive;
+var workOpen = false;
+var blogOpen = false;
+
+function init(){
+	if (window.location.hash){
+		sendToHash();
+	}
+	windowResize();
+	fixed = false;
+	
+	navLinks = $('#navigation a');
+	scrollSpyActive = -1;
 }
-$(document).ready(function(){
-	$('pre').addClass("prettyprint linenums");
-	$('code').addClass("prettyprint");
+
+function sendToHash(){
+	var location = window.location.hash.split("/");
+	sendToArea(location);
+}
+
+function sendToArea(location){
+	var currentScroll = $('#scroll').scrollTop();
+	var position = currentScroll + $('#' + location[1]).offset().top;
+	
+	$('#scroll').animate({
+		scrollTop: position - 48
+	}, 1000);
+	
+	if (workOpen) {
+		closeWork();
+	}
+	else if (blogOpen) {
+		closeBlog();
+	}
+	else if (location[2]){
+		if (location[1] == "work"){
+			openWork(work[location[2]]);
+		}
+		else if (location[1] == "blog"){
+			openBlog(blog[location[2]]);
+		}
+	}
+}
+
+function openWork(project){
+	document.title = "Travis McKinney | " + project.title;
+	workOpen = true;
+	$('#work-title').html(project.title);
+	$(project.images).each( function(){
+		$('#work-images').append('<img src="' + this + '">');
+	});
+	$('#work-content').html(project.content);
+	$('#work-overlay').fadeIn(1000);
+}
+
+function closeWork(){
+	document.title = "Travis McKinney | Brooklyn based designer and developer";
+	workOpen = false;
+	$('#work-overlay').fadeOut(400);
+	setTimeout( function(){
+		$('#work-content, #work-images, #work-title').empty();
+	}, 400);
+}
+
+function openBlog(blogpost){
+	blogOpen = true;
+	document.title = "Travis McKinney | " + blogpost.title;
+	$('#blog-title').html(blogpost.title);
+	$('#blog-content').html(blogpost.content).prepend('<img src="' + blogpost.image + '">');
+	$('#blog-content pre').addClass("prettyprint linenums");
+	$('#blog-content code').addClass("prettyprint");
 	prettyPrint();
-	likes();
+	setTimeout(function(){
+		DISQUS.reset({
+		  reload: true,
+		  config: function () {  
+		    this.page.identifier = window.location.href;  
+		    this.page.url = window.location.href;
+		  }
+		});
+	}, 400);
+	$('#blog-overlay').fadeIn(1000);
+}
+
+function closeBlog () {
+	document.title = "Travis McKinney | Brooklyn based designer and developer";
+	blogOpen = false;
+	$('#blog-overlay').fadeOut(400);
+	setTimeout( function(){
+		$('#blog-content, #blog-title').empty();
+	}, 400);
+}
+
+function windowResize(){
+	navOffset = $('#header').height();
+	scrollSpy();
 	
-	$('a#about-image').click(function(){
-		likes();
+	var wW = $(window).width();
+	var $container = $('#blogposts');
+	if (wW >= 1200) {
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 300
+		  });
+		});
+	}
+	else if (wW > 979){
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 240
+		  });
+		});
+	}
+	else if (wW > 767){
+		$container.imagesLoaded(function(){
+		  $container.masonry({
+		    itemSelector : '.span3',
+		    columnWidth : 186
+		  });
+		});
+	}
+	
+	
+	
+}
+
+function scrollSpy(){
+	$(navLinks).each( function(i){
+		var targetName = $(this).attr('data-spy');
+		scrollSpyTargets[i] = $(targetName).offset().top;
 	});
+	if (scrollSpyTargets[scrollSpyActive+1] < 49) {
+		scrollSpyActive++;
+		scrollSpyActivate(navLinks[scrollSpyActive]);
+	}
+	else if (scrollSpyTargets[scrollSpyActive] > 49) {
+		scrollSpyActive--;
+		scrollSpyActivate(navLinks[scrollSpyActive]);
+	}
+}
+
+function scrollSpyActivate(active){
+	$('#navigation .active').removeClass('active');
+	$(active).addClass('active');
+}
+
+$(function(){
+	init();
 	
-	$('.work-accordion a').click(function(e){
+	$('.navigation a').click( function(e){
 		e.preventDefault();
-		$('.active').removeClass('active');
-		var $this = $(this);
-		setTimeout(function(){
-			$this.addClass('active');
-		}, 250);
-		
+		window.location.hash = $(this).attr('href');
 	});
 	
-	$('#filters a').click( function(e){
+	$('a.projectlink').click( function(e){
 		e.preventDefault();
-		$(this).parents('#filters').find('.activework').removeClass('activework');
-		$(this).addClass('activework');
-		var filterType = $(this).attr('data-filter');
-		$('.workitem').addClass('filtered');
-		$(filterType).removeClass('filtered');
-	});
-	var text;
-	
-	$('.sidebar a').hover( function(e){
-		var username = $(this).attr('data-hover');
-		text = $(this).html();
-		$(this).html(username);
-		var eltop = $(this).offset().top;
-		var elbottom = eltop + $(this).height();
-		var cursor = e.pageY;
-		var middle = ($(this).height() / 2) + eltop;
-		console.log("bottom " + elbottom);
-		console.log("middle " + middle);
-		console.log("top " + eltop);
-		
-		if(cursor < middle){
-			$(this).addClass('entertop');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('entertop');
-			}, 500);
-		}
-		else{
-			$(this).addClass('enterbottom');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('enterbottom');
-			}, 500);
-		}
-		
-	}, function(e){
-		$(this).html(text);
-		var eltop = $(this).offset().top;
-		var elbottom = eltop + $(this).height();
-		var cursor = e.pageY;
-		
-		if(cursor > elbottom){
-			$(this).addClass('leavebottom');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('leavebottom');
-			}, 500);
-		}
-		else{
-			$(this).addClass('leavetop');
-			var that = this;
-			setTimeout(function(){
-				$(that).removeClass('leavetop');
-			}, 500);
-		}
-		
+		window.location.hash = $(this).attr('href');
 	});
 	
+	$('#scroll').scroll( function(){
+		var top = $('#scroll').scrollTop();
+		if (top > navOffset && !fixed) {
+			fixed = true;
+			$('body').addClass('fix-nav');
+		}
+		else if (top < navOffset && fixed){
+			fixed = false;
+			$('body').removeClass('fix-nav');
+		}
+		
+		scrollSpy();
+	});
 	
+	$(window).resize( function(){
+		windowResize();
+	});
+	
+	// dealing with history
+	$(window).hashchange( function(){
+		sendToHash();
+	});
 });
+
+

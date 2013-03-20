@@ -1,4 +1,4 @@
-require "_deployvariables"
+load '_deployvariables.rb'
 
 desc 'Make a new post'
 task :post, [:name] do |t, args|
@@ -18,13 +18,27 @@ task :project, [:name] do |t, args|
   end
 end
 
-desc "Builds and deploy"
-task :deploy do
-  puts "*** Building the site ***"
-  system "jekyll --url http://travmckinney.com --no-auto" 
-  puts "*** Deploying the site ***"
-  system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html"
+
+namespace :deploy do
+  
+  desc "Builds and deploys to production"
+  task :production do
+    puts "*** Building the site ***"
+    system "jekyll --url http://travmckinney.com --no-auto" 
+    puts "*** Deploying the site ***"
+    system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html"
+  end
+  
+  desc "Builds and deploys to staging"
+  task :staging do
+    puts "*** Building the site ***"
+    system "jekyll --url http://staging.travmckinney.com --no-auto" 
+    puts "*** Deploying the site ***"
+    system "rsync -crz --progress -e ssh _site/* #{@ssh_user}@#{@remote_root}:public_html/staging"
+  end
+  
 end
+
 
 def template(name, type)
   t = Time.now

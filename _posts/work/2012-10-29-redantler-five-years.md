@@ -1,5 +1,5 @@
 ---              
-layout: work_entry
+layout: default
 category: work
 title: Red Antler is 5
 tags: development web

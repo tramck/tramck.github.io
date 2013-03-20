@@ -1,6 +1,7 @@
 ---              
-layout: blog
-title: McKinney - Myhre Correspondence
+layout: default
+title: McKinney - Myhre Moleskine
+permalink: /blog/myhre-mckinney-correspondence
 category: blog
 excerpt: One of my good friends and college professors, Loren Myhre, and I have been mailing a sketchbook back-and-forth. We collage and build upon each other’s work.
 image: mmm-1.jpeg
