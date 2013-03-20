@@ -9,9 +9,9 @@ title: Home
     </div>
     <div class="container">
       <div class="navigation" id="navigation">
-        <a href="#/about" data-spy="#about">About</a>
-        <a href="#/work" data-spy="#work">Work</a>
-        <a href="#/blog" data-spy="#blog">Blog</a>
+        <a href="#!/about" data-spy="#about">About</a>
+        <a href="#!/work" data-spy="#work">Work</a>
+        <a href="#!/blog" data-spy="#blog">Blog</a>
         <div class="nav-logo"></div>
       </div>
     </div>
@@ -23,7 +23,7 @@ title: Home
   <div class="container content">
     <div class="work" id="work">
       {% for post in site.categories.work %}
-      <a class="projectlink" href="#{{ post.url }}">
+      <a class="projectlink" href="#!{{ post.url }}">
         <div class="project">
           <div class="bw" style="background-image:url({{ site.url }}/images/work/bw/{{ post.image }})"></div>
           <div class="color" style="background-image:url({{ site.url }}/images/work/src/{{ post.image }})">
@@ -43,13 +43,13 @@ title: Home
           <div class="blogpost featured">
             <div class="row-fluid">
               <div class="span4">
-                <a class="projectlink" href="#{{ post.url }}">
+                <a class="projectlink" href="#!{{ post.url }}">
                   <h4>{{ post.date | date: "%B %d, %Y" }}</h4>
                   <h2>{{ post.title }}</h2>
                 </a>
               </div>
               <div class="span8">
-                <p>{{ post.excerpt }} <a class="readmore" href="#{{ post.url }}">Read&nbsp;More&hellip;</a></p>
+                <p>{{ post.excerpt }} <a class="readmore" href="#!{{ post.url }}">Read&nbsp;More&hellip;</a></p>
               </div>
             </div>
           </div>
@@ -59,13 +59,13 @@ title: Home
             
               <div class="span3">
                 <div class="blogpost">
-                  <a href="#{{ post.url }}" class="postimage">
+                  <a href="#!{{ post.url }}" class="postimage">
                     <img src="{{ site.url }}/images/blog/{{ post.image }}">
                   </a>
-                	<a class="projectlink" href="#{{ post.url }}">
+                	<a class="projectlink" href="#!{{ post.url }}">
                     <h2>{{ post.title }}</h2>
                   </a>
-                	<p>{{ post.excerpt }} <a class="readmore" href="#{{ post.url }}">Read&nbsp;More&hellip;</a></p>
+                	<p>{{ post.excerpt }} <a class="readmore" href="#!{{ post.url }}">Read&nbsp;More&hellip;</a></p>
               	</div>
               </div>
             

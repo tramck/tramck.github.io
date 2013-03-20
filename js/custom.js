@@ -55,6 +55,7 @@ function sendToArea(location){
 }
 
 function openWork(project){
+	document.title = "Travis McKinney | " + project.title;
 	workOpen = true;
 	$('#work-title').html(project.title);
 	
@@ -72,8 +73,9 @@ function openWork(project){
 }
 
 function closeWork(){
+	document.title = "Travis McKinney | Brooklyn based designer and developer";
 	workOpen = false;
-	window.location.hash = "#/work";
+	window.location.hash = "#!/work";
 	$('#work-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#work-content, #work-images, #work-title').empty();
@@ -82,6 +84,7 @@ function closeWork(){
 
 function openBlog(blogpost){
 	blogOpen = true;
+	document.title = "Travis McKinney | " + blogpost.title;
 	$('#blog-title').html(blogpost.title);
 	
 	$('#blog-content').html(blogpost.content).prepend('<img src="' + blogpost.image + '">');
@@ -109,8 +112,9 @@ function openBlog(blogpost){
 }
 
 function closeBlog () {
+	document.title = "Travis McKinney | Brooklyn based designer and developer";
 	blogOpen = false;
-	window.location.hash = "#/blog";
+	window.location.hash = "#!/blog";
 	$('#blog-overlay').fadeOut(400);
 	setTimeout( function(){
 		$('#blog-content, #blog-title').empty();
