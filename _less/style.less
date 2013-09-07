@@ -4,12 +4,36 @@
 @font-family-base: @font-family-serif;
 @headings-font-weight: 700;
 @link-color: #fff;
-
 @font-size-h1: 40px;
+@container-tablet: 100%;
+@container-desktop: 100%;
+@grid-gutter-width: 50px;
 
 body {
 	background: #000;
 	color: #fff;
+	.transition(background .1s linear);
+	padding-top: 40px;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1 {
+	margin-bottom: 30px;
+	font-size: 55px;
+}
+
+.unicorn {
+	.size(105px, 85px);
+	background: url('../img/unicorn.svg') 0 0 no-repeat;
+	float: right;
+	@media (max-width: @screen-sm) {
+		float: none;
+		display: block;
+	}
 }
 
 .lead {
@@ -20,8 +44,11 @@ body {
 		border-bottom: 2px solid #fff;
 		height: 43px;
 		display: inline-block;
+		.transition(all .1s linear);
 
 		&:hover {
+			color: #000;
+			border-color: #000;
 			text-decoration: none;
 		}
 	}
