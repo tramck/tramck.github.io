@@ -23,7 +23,6 @@
 # permalink: /blog/:year/:month/:day/:title /blog/2009/04/29/slap-chop/index.html
 
 permalink: /:categories/:title
-auto: true
 safe: false
 
 maruku:
@@ -51,14 +50,4 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 
-exclude: Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
-
-url: http://0.0.0.0:4000
-
-mini_magick:
-  workthumbs:
-    source: images/work/src
-    destination: images/work/bw
-    commands:
-      - modulate: "80, 20" 
-      
+exclude: ['Procfile', 'Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']

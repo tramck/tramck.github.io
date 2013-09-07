@@ -1,5 +1,5 @@
 .DS_Store
-*.scssc
 Gemfile.lock
 _site/
+serve/
 _deployvariables.rb
