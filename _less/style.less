@@ -4,16 +4,18 @@
 @font-family-base: @font-family-serif;
 @headings-font-weight: 700;
 @link-color: #fff;
-@font-size-h1: 40px;
+@font-size-h1: 55px;
+@font-size-h3: 30px;
 @container-tablet: 100%;
 @container-desktop: 100%;
 @grid-gutter-width: 50px;
+@font-size-base: 18px;
 
 body {
 	background: #000;
 	color: #fff;
 	.transition(background .1s linear);
-	padding-top: 40px;
+	padding: 40px 0;
 }
 
 a:hover {
@@ -23,7 +25,6 @@ a:hover {
 
 h1 {
 	margin-bottom: 30px;
-	font-size: 55px;
 }
 
 .unicorn {
@@ -37,8 +38,9 @@ h1 {
 }
 
 .lead {
-	font-size: @font-size-h1;
+	font-size: 40px;
 	line-height: 47px;
+	word-spacing: .1em;
 
 	a {
 		border-bottom: 2px solid #fff;
@@ -52,4 +54,10 @@ h1 {
 			text-decoration: none;
 		}
 	}
+}
+
+ul.home-list {
+	list-style: none;
+	padding: 0;
+	font-size: 24px;
 }

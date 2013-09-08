@@ -3,7 +3,27 @@ layout: default
 title: Home
 ---
 <div class="row">
-  <div class="col-sm-12 col-md-10 col-lg-8">
+  <div class="col-sm-12 col-md-9 col-lg-8">
     <p class="lead">Designer &amp; Developer in Brooklyn, Co-founder of <a href="http://mayne.com" class="change-bg" data-bg-color="#D7866D">Mayne</a>, Lead Developer at <a href="http://redantler.com" class="change-bg" data-bg-color="#FF5324">Red Antler</a>, Creator of <a href="http://scrimmageapp.com" class="change-bg" data-bg-color="#11B499">Scrimmage</a>.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Projects</h3>
+    <ul class="home-list">
+      {% for post in site.categories.work %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <h3>On the web</h3>
+    <ul class="home-list">
+      <li><a href="{{ site.url }}/blog">Blog</a></li>
+      <li><a href="http://github.com/braznaavtrav">Github</a></li>
+      <li><a href="#">Stack Overflow</a></li>
+      <li><a href="http://twitter.com/braznaavtrav">Twitter</a></li>
+      <li><a href="http://twitter.com/braznaavtrav">Instagram</a></li>
+    </ul>
   </div>
 </div>
