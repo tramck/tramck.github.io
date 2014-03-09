@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: RED ANTLER’S AMAZING 5 YEAR BIRTHDAY BASH
 permalink: /blog/red-antlers-5-year-anniversary-bash
 category: blog

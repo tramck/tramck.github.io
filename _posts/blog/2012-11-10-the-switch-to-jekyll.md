@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: The Switch to Jekyll
 category: blog
 excerpt: Jekyll is a static site generator built in ruby and the liquid templating system. I recently switched from Wordpress to Jekyll.

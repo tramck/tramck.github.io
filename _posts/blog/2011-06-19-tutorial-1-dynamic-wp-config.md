@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: "TUTORIAL #1: DYNAMIC WP-CONFIG"
 category: blog
 excerpt: In my experience developing websites using WordPress as a content management system, I almost always find the need to have a development environment on my local machine, a staging environment on my web server or sometimes on the client’s web server, and the final production environment. One thing that can be somewhat tedious is keeping up with having separate wp-config.php files for each wordpress installation.

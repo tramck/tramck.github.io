@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: GLOBAL HEALTH CORPS SITE LAUNCH
 category: blog
 excerpt: Global Health Corps is a global non-profit that seeks to provide health equity to impoverished areas in Africa. I recently had the honor to design and develop Global Health Corps’ new website.

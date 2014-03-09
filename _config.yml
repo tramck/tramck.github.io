@@ -50,4 +50,4 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 
-exclude: ['Procfile', 'Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'package.json', 'node_modules', 'Gruntfile.js']

@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: One Landor
 category: blog
 excerpt: My friend at work, Elliot Scott, took pictures of many of the employees at Landor the other day. He then paired up people together and managed to morph features of each person’s faces on to one another.

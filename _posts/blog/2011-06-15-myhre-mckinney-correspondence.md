@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: McKinney - Myhre Moleskine
 permalink: /blog/myhre-mckinney-correspondence
 category: blog

@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: My Antlers Are Red
 category: blog
 excerpt: Today was my first day as an employee of the renowned, Brooklyn-based branding agency Red Antler.

@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: Stills from The Best Years of Our Lives
 category: blog
 excerpt: The Best Years of Our Lives has become one of my favorite movies, mainly for the way it has the ability to tell stories with only individual shots.

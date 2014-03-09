@@ -55,5 +55,5 @@ def template(name, type)
     f.write contents
   end
   puts "created #{filename}"
-  system "mate #{filename}"
+  system "subl #{filename}"
 end
