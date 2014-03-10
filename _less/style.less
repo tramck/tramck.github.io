@@ -1,18 +1,6 @@
-@import "bootstrap/bootstrap";
-
-@font-family-serif: "arno-pro", "Times New Roman", Times, serif;
-@font-family-base: @font-family-serif;
-@headings-font-weight: 700;
-@link-color: #fff;
-@font-size-h1: 55px;
-@font-size-h3: 30px;
-@container-tablet: 100%;
-@container-desktop: 100%;
-@grid-gutter-width: 50px;
-@font-size-base: 14px;
-
-
-@import "code";
+@import 'bootstrap/bootstrap';
+@import 'variables';
+@import 'code';
 
 body {
 	background: #000;
@@ -24,6 +12,14 @@ body {
 a:hover {
 	text-decoration: none;
 	color: inherit;
+}
+
+#canvas {
+	position: fixed;
+	.square(100%);
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 
 h1 {

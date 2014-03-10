@@ -41,7 +41,6 @@ I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
 
 ## TODO
 
-- zepto
 - canvas
 - wedluck
 - tenayo
