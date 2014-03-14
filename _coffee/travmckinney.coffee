@@ -3,7 +3,7 @@ TravMcKinney =
   init: ->
     @setUpCanvas()
     @hoverWork()
-    @openPost()
+    # @openPost()
 
   setUpCanvas: ->
     self = this
@@ -94,29 +94,29 @@ TravMcKinney =
       $('body').css
         'background': ''
 
-  openPost: ->
-    self = this
-    $('.open-work').on 'click', ->
-      target = $(this).attr 'href'
-      data = posts[target]
-      $('body').css
-        'background': ''
-      self.strokeColor = self.oldStrokeColor
-      $modal = $ '#work-modal'
-      $modal
-        .find '.modal-title'
-          .text data.title
-          .end()
-        .find '.modal-body'
-          .html data.content
-          .end()
-        .modal()
-      imageArray = []
-      imageArray.push data.images
-      for image in imageArray
-        $modal.find '.modal-body'
-          .prepend "<img src='/img/work/#{image}'>"
-      return false
+  # openPost: ->
+  #   self = this
+  #   $('.open-work').on 'click', ->
+  #     target = $(this).attr 'href'
+  #     data = posts[target]
+  #     $('body').css
+  #       'background': ''
+  #     self.strokeColor = self.oldStrokeColor
+  #     $modal = $ '#work-modal'
+  #     $modal
+  #       .find '.modal-title'
+  #         .text data.title
+  #         .end()
+  #       .find '.modal-body'
+  #         .html data.content
+  #         .end()
+  #       .modal()
+  #     imageArray = []
+  #     imageArray.push data.images
+  #     for image in imageArray
+  #       $modal.find '.modal-body'
+  #         .prepend "<img src='/img/work/#{image}'>"
+  #     return false
 
 
 TravMcKinney.init()

@@ -5,8 +5,7 @@
     strokeColor: '#444',
     init: function() {
       this.setUpCanvas();
-      this.hoverWork();
-      return this.openPost();
+      return this.hoverWork();
     },
     setUpCanvas: function() {
       var Vector, canvas, drawLinesBetweenPoints, handleTick, i, point, points, randomMovePoints, self, x, y, _i;
@@ -110,28 +109,6 @@
         return $('body').css({
           'background': ''
         });
-      });
-    },
-    openPost: function() {
-      var self;
-      self = this;
-      return $('.open-work').on('click', function() {
-        var $modal, data, image, imageArray, target, _i, _len;
-        target = $(this).attr('href');
-        data = posts[target];
-        $('body').css({
-          'background': ''
-        });
-        self.strokeColor = self.oldStrokeColor;
-        $modal = $('#work-modal');
-        $modal.find('.modal-title').text(data.title).end().find('.modal-body').html(data.content).end().modal();
-        imageArray = [];
-        imageArray.push(data.images);
-        for (_i = 0, _len = imageArray.length; _i < _len; _i++) {
-          image = imageArray[_i];
-          $modal.find('.modal-body').prepend("<img src='/img/work/" + image + "'>");
-        }
-        return false;
       });
     }
   };

@@ -26,7 +26,7 @@ title: Home
     <h3>Recent Work</h3>
     <ul class="home-list home-list-work">
       {% for post in site.categories.work %}
-        <li><span class="change-bg" data-bg-color="#{{ post.color }}" data-stroke-color="#{{ post.stroke_color }}"><a href="{{ post.id | replace: '/work/', '' }}" class="open-work">{{ post.title }}</a> {% if post.redirect_to %} <span class="hide-till-hover"><a class="link-out" href="{{ post.redirect_to }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>{% endif %}</span></span></li>
+        <li><span class="change-bg" data-bg-color="#{{ post.color }}" data-stroke-color="#{{ post.stroke_color }}"><a href="{{ post.url }}" class="open-work">{{ post.title }}</a> {% if post.redirect_to %} <span class="hide-till-hover"><a class="link-out" href="{{ post.redirect_to }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>{% endif %}</span></span></li>
       {% endfor %}
     </ul>
 
@@ -41,7 +41,7 @@ title: Home
     <ul class="home-list">
       <li><a href="{{ site.url }}/blog">Blog</a></li>
       <li><a href="http://github.com/braznaavtrav">Github</a></li>
-      <li><a href="#">Stack Overflow</a></li>
+      <li><a href="http://stackoverflow.com/users/1173813/trav-mckinney">Stack Overflow</a></li>
       <li><a href="http://twitter.com/braznaavtrav">Twitter</a></li>
       <li><a href="http://instagram.com/braznaavtrav">Instagram</a></li>
     </ul>

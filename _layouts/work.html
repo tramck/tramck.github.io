@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<h2>{{ page.title }}</h2>
+{{ page.content }}
+{% if page.redirect_to || page.full_case %}
+	<p class="links">
+		<a href="{{ page.redirect_to }}" target="_blank">View Site</a>
+		{% if page.full_case %}
+			| <a href="{{ page.full_case }}" target="_blank">View Full Case Study on RedAntler.com</a>
+		{% endif %}		
+	</p>
+{% endif %}

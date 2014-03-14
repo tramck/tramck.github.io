@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: work
 category: work
 title: Tenayo Salsa
 tags:
