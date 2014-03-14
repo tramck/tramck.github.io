@@ -1,6 +1,16 @@
 @import 'bootstrap/bootstrap';
 @import 'variables';
 @import 'code';
+@import 'modal';
+
+html {
+	min-height: 100%;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
 
 body {
 	background: #000;
@@ -22,18 +32,31 @@ a:hover {
 	z-index: -1;
 }
 
+.home-link{
+	float: left;
+	margin: 30px 0;
+	border-bottom: 2px solid transparent;
+
+	&:hover {
+		border-color: #fff;
+	}
+
+}
+
 h1 {
-	margin-bottom: 30px;
+	margin: 0;
 }
 
 .unicorn {
 	.size(105px, 85px);
 	background: url('../img/unicorn.svg') 0 0 no-repeat;
 	float: right;
+	
 	@media (max-width: @screen-sm) {
 		float: none;
 		display: block;
 	}
+
 }
 
 .lead {
@@ -52,11 +75,66 @@ h1 {
 			border-color: #000;
 			text-decoration: none;
 		}
+
 	}
+
 }
 
 ul.home-list {
 	list-style: none;
 	padding: 0;
 	font-size: 24px;
+	width: 100%;
+	float: left;
+	margin-bottom: 50px;
+
+	li {
+		display: block;
+		float: left;
+		clear: both;
+	}
+
+	a{
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+}
+
+.home-list-work {
+
+	li {
+		cursor: pointer;
+
+		&:hover {
+
+			.hide-till-hover {
+				display: inline-block;
+			}
+
+		}
+
+		.open-work:hover {
+			color: #000;
+			text-decoration: underline;
+		}
+
+		.hide-till-hover {
+			display: none;
+		}
+
+		.link-out {
+			font-size: 16px;
+			
+			&:hover {
+				color: #000;
+			}
+
+		}
+
+	}
+
 }

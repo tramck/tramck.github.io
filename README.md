@@ -41,11 +41,11 @@ I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
 
 ## TODO
 
-- canvas
-- wedluck
+- integrate jekyll with grunt
+- project detail modal
 - tenayo
-- trestle
-- b team
 - ces 2013
 - sailthru annual report
+- move rake tasks to grunt tasks
+- gh_pages
 
