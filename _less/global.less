@@ -1,0 +1,110 @@
+html {
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+body {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;	
+	background: #000;
+	color: #fff;
+	.transition(background .25s linear);
+	padding: 40px 0;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+#canvas {
+	position: fixed;
+	.square(100%);
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.home-link{
+	float: left;
+	margin: 30px 0;
+
+	&:hover {
+		text-shadow:
+			3px 3px 0 #000,
+			-1px -1px 0 #000,  
+			1px -1px 0 #000,
+			-1px 1px 0 #000,
+			1px 1px 0 #000;
+	}
+
+}
+
+h1 {
+	margin: 0;
+}
+
+.unicorn {
+	.size(105px, 85px);
+	float: right;
+	
+	@media (max-width: @screen-sm) {
+		float: none;
+		display: block;
+	}
+
+	&:hover {
+
+		path {
+			fill: rgba(255, 255, 255, 0);
+			stroke: rgba(255, 255, 255, 1);
+			stroke-width: 2px;
+		}
+
+	}
+
+	path {
+		fill: rgba(255, 255, 255, 1);
+		stroke: rgba(255, 255, 255, 0);
+	}
+
+}
+
+.lead {
+	font-size: 40px;
+	line-height: 47px;
+	word-spacing: .1em;
+
+	a {
+		border-bottom: 2px solid #fff;
+		height: 43px;
+		display: inline-block;
+		.transition(all .1s linear);
+
+		&:hover {
+			color: #000;
+			border-color: #000;
+			text-decoration: none;
+		}
+
+	}
+
+}
+
+.btn {
+	padding: 10px 20px;
+	border-radius: 30px;
+
+	&:hover {
+		background: #000;
+		color: #efefef;
+	}
+
+}

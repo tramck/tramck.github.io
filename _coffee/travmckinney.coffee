@@ -1,9 +1,14 @@
 TravMcKinney =
-  strokeColor: '#444'
   init: ->
+    @setUpColors()
     @setUpCanvas()
     @hoverWork()
     # @openPost()
+
+  setUpColors: ->
+    @strokeColor = $('#canvas').data('stroke-color')
+    $('body').css
+      'background': $('#canvas').data('bg-color')
 
   setUpCanvas: ->
     self = this
@@ -73,7 +78,8 @@ TravMcKinney =
 
     handleTick = ->
       self.stage.removeAllChildren()
-      randomMovePoints(points)
+      unless $('canvas').data('still')
+        randomMovePoints(points)
       drawLinesBetweenPoints(points)
       self.stage.update()
 

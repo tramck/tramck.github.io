@@ -2,10 +2,16 @@
   var TravMcKinney;
 
   TravMcKinney = {
-    strokeColor: '#444',
     init: function() {
+      this.setUpColors();
       this.setUpCanvas();
       return this.hoverWork();
+    },
+    setUpColors: function() {
+      this.strokeColor = $('#canvas').data('stroke-color');
+      return $('body').css({
+        'background': $('#canvas').data('bg-color')
+      });
     },
     setUpCanvas: function() {
       var Vector, canvas, drawLinesBetweenPoints, handleTick, i, point, points, randomMovePoints, self, x, y, _i;
@@ -86,7 +92,9 @@
       };
       handleTick = function() {
         self.stage.removeAllChildren();
-        randomMovePoints(points);
+        if (!$('canvas').data('still')) {
+          randomMovePoints(points);
+        }
         drawLinesBetweenPoints(points);
         return self.stage.update();
       };
