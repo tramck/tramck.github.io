@@ -22,8 +22,11 @@
 # permalink: /:month-:day-:year/:title.html /04-29-2009/slap-chop.html
 # permalink: /blog/:year/:month/:day/:title /blog/2009/04/29/slap-chop/index.html
 
+safe: true
+lsi: false
+pygments: true
+
 permalink: /:categories/:title
-safe: false
 
 rdiscount:
   extensions: []

@@ -5,7 +5,12 @@
     init: function() {
       this.setUpColors();
       this.setUpCanvas();
-      return this.hoverWork();
+      if ($('body').hasClass('home')) {
+        this.hoverWork();
+      }
+      if ($('body').hasClass('blog')) {
+        return this.setUpBlog();
+      }
     },
     setUpColors: function() {
       this.strokeColor = $('#canvas').data('stroke-color');
@@ -118,6 +123,17 @@
           'background': ''
         });
       });
+    },
+    setUpBlog: function() {
+      window.disqus_shortname = 'travmckinney';
+      return (function() {
+        var s;
+        s = document.createElement('script');
+        s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + window.disqus_shortname + '.disqus.com/count.js';
+        return (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      })();
     }
   };
 

@@ -2,8 +2,11 @@ TravMcKinney =
   init: ->
     @setUpColors()
     @setUpCanvas()
-    @hoverWork()
-    # @openPost()
+    if $('body').hasClass 'home'
+      @hoverWork()
+
+    if $('body').hasClass 'blog'
+      @setUpBlog()    
 
   setUpColors: ->
     @strokeColor = $('#canvas').data('stroke-color')
@@ -86,7 +89,6 @@ TravMcKinney =
     createjs.Ticker.setFPS 24
     createjs.Ticker.addEventListener "tick", handleTick
 
-
   hoverWork: ->
     self = this
     $('.change-bg').hover ->
@@ -100,29 +102,14 @@ TravMcKinney =
       $('body').css
         'background': ''
 
-  # openPost: ->
-  #   self = this
-  #   $('.open-work').on 'click', ->
-  #     target = $(this).attr 'href'
-  #     data = posts[target]
-  #     $('body').css
-  #       'background': ''
-  #     self.strokeColor = self.oldStrokeColor
-  #     $modal = $ '#work-modal'
-  #     $modal
-  #       .find '.modal-title'
-  #         .text data.title
-  #         .end()
-  #       .find '.modal-body'
-  #         .html data.content
-  #         .end()
-  #       .modal()
-  #     imageArray = []
-  #     imageArray.push data.images
-  #     for image in imageArray
-  #       $modal.find '.modal-body'
-  #         .prepend "<img src='/img/work/#{image}'>"
-  #     return false
+  setUpBlog: ->
+    window.disqus_shortname = 'travmckinney'
 
+    do ->
+      s = document.createElement('script') 
+      s.async = true
+      s.type = 'text/javascript'
+      s.src = 'http://' + window.disqus_shortname + '.disqus.com/count.js'
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s)
 
 TravMcKinney.init()

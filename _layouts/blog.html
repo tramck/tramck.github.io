@@ -2,9 +2,10 @@
 layout: default
 body_class: blog
 ---
+{% include subheader.html %}
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <h3 class="text-center">{{ page.title }}</h3>
+    <h2 class="text-center">{{ page.title }}</h2>
     {{ content }}
     <div id="disqus_thread"></div>
     <script type="text/javascript">
