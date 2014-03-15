@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: The New Chad Lavigne
 category: blog
 excerpt: Today was a big day. Chad Lavigne launched their new website, created by myself and partner-in-crime Mike McVicar.

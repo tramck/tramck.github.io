@@ -1,5 +1,29 @@
 ---
 layout: default
-title: blog
+title: Blog
 permalink: /blog/index.html
+body_class: blog
 ---
+{% include subheader.html %}
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+		{% for post in site.categories.blog %}
+			{% if forloop.first %}
+				<a href="{{ post.url }}">
+					<h2 class="text-center">{{ post.title }}</h2>
+				</a>
+				{{ post.content }}
+				<p class="text-center"><a class="btn btn-default" href="{{ post.url }}/#disqus_thread">Read More</a></p>
+			{% else %}
+				<a href="{{ post.url }}">
+					<h3 class="text-center">{{ post.title }}</h3>
+				</a>
+				<p>{{ post.excerpt }}</p>
+				<p class="text-center"><a class="btn btn-default" href="{{ post.url }}">Read More</a></p>
+			{% endif %}
+      <hr>
+		{% endfor %}
+  </div>
+</div>
+
+<canvas id="canvas" data-bg-color="#eee" data-stroke-color="#fff" data-still="1"></canvas>

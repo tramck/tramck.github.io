@@ -1,0 +1,58 @@
+ul.home-list {
+	list-style: none;
+	padding: 0;
+	font-size: 24px;
+	width: 100%;
+	float: left;
+	margin-bottom: 50px;
+
+	li {
+		display: block;
+		float: left;
+		clear: both;
+	}
+
+	a{
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+	}
+
+}
+
+.home-list-work {
+
+	li {
+		cursor: pointer;
+
+		&:hover {
+
+			.hide-till-hover {
+				display: inline-block;
+			}
+
+		}
+
+		.open-work:hover {
+			color: #000;
+			text-decoration: underline;
+		}
+
+		.hide-till-hover {
+			display: none;
+		}
+
+		.link-out {
+			font-size: 16px;
+			
+			&:hover {
+				color: #000;
+			}
+
+		}
+
+	}
+
+}

@@ -1,9 +1,5 @@
 source 'http://gemcutter.org'
 
-gem 'mini_magick'
-gem 'jekyll'
+# gem 'jekyll', '1.4.3'
+gem 'github-pages'
 gem 'rake'
-gem 'foreman'
-gem 'therubyracer'
-gem 'less'
-gem 'watchr'

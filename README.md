@@ -38,3 +38,14 @@ You will then be able to deploy using rake commands `rake deploy:production` or 
 ## Comments with Disqus
 
 I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
+
+## TODO
+
+- integrate jekyll with grunt
+- project detail modal
+- tenayo
+- ces 2013
+- sailthru annual report
+- move rake tasks to grunt tasks
+- gh_pages
+
