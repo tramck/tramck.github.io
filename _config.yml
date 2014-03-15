@@ -53,7 +53,7 @@ kramdown:
 
 exclude: Procfile, Gemfile, Gemfile.lock, Rakefile, README.md
 
-url: http://0.0.0.0:4000
+url: http://braznaavtrav.github.io
 
 mini_magick:
   workthumbs:
