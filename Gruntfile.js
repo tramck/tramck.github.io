@@ -45,6 +45,14 @@ module.exports = function(grunt) {
       options: {
         livereload: true,
       }
+    },
+
+    jekyll: {
+      serve: {
+        options: {
+          serve: true
+        }
+      }
     }
 
   });
@@ -53,4 +61,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-jekyll');
+
+  grunt.task.registerTask('default', ['watch', 'jekyll']);
 }
