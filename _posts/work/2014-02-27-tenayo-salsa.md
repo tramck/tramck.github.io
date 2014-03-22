@@ -5,6 +5,6 @@ title: Tenayo Salsa
 tags:
   shopify
 redirect_to: http://tenayo.com/
-bg_color: "#910"
-stroke_color: "#EECC18"
+bg_color: "#B11111"
+stroke_color: "#E90606"
 ---

@@ -42,15 +42,25 @@ module.exports = function(grunt) {
         files: ['js/travmckinney.js'],
         tasks: ['uglify:dist']
       },
+      jekyll: {
+        files: ['_config.yml', '*.html', '_posts/**/*', '_layouts/**/*', '_includes/**/*', 'img/**/*', 'css/**/*'],
+        tasks: ['jekyll:build']
+      },
       options: {
         livereload: true,
       }
     },
 
     jekyll: {
-      serve: {
+      build: {
+      }
+    },
+
+    connect: {
+      server: {
         options: {
-          serve: true
+          port: 3000,
+          base: '_site/'
         }
       }
     }
@@ -61,7 +71,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-jekyll');
 
-  grunt.task.registerTask('default', ['watch', 'jekyll']);
+  grunt.task.registerTask('default', ['connect:server', 'watch']);
 }

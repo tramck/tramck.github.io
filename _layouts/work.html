@@ -4,40 +4,37 @@ body_class: work
 ---
 {% include subheader.html %}
 <div class="row">
-	<div class="col-sm-3 col-md-4">
-		{{ page.content }}
-		{% if page.redirect_to || page.full_case %}
-			<p class="links">
-				<a href="{{ page.redirect_to }}" target="_blank">View Site</a>
-				{% if page.full_case %}
-					| <a href="{{ page.full_case }}" target="_blank">View Full Case Study on RedAntler.com</a>
-				{% endif %}		
-			</p>
-		{% endif %}
-	</div>
-	<div class="col-sm-9 col-md-8">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-			  {% for image in page.images %}
-			  	<li data-target="#carousel-example-generic" data-slide-to="{{ forloop.index0 }}" {{ 'class="active"' if forloop.first }}></li>
-			  {% endfor %}
-		  </ol>
+	<div class="col-md-10 col-md-offset-1">
+		<div class="work-content row">
+			<div class="col-sm-8 col-sm-offset-2">
+				{{ page.content }}
 
-		  <div class="carousel-inner">
-			  {% for image in page.images %}
-			  	<div class="item {{ "active" if forloop.first }}">
-			  	  <img src="/img/work/{{ image }}">
-			  	</div>
-			  {% endfor %}
-		  </div>
-
-		  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left"></span>
-		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right"></span>
-		  </a>
+				{% if page.redirect_to || page.full_case %}
+					<p class="links">
+						<a href="{{ page.redirect_to }}" target="_blank">View Site</a>
+						{% if page.full_case %}
+							| <a href="{{ page.full_case }}" target="_blank">View Full Case Study on RedAntler.com</a>
+						{% endif %}		
+					</p>
+				{% endif %}
+			</div>
 		</div>
+
+
+		{% if page.redirect_to %}
+			<div class="browser-top">
+				{{ page.title }}
+			</div>
+			<div class="iframe-wrapper">
+				<iframe src="{{ page.redirect_to }}" frameborder="0"></iframe>
+			</div>
+			<div class="browser-bottom"></div>
+		{% endif %}
+
+		{% for image in page.images %}
+			  <img src="/img/work/{{ image }}">
+		{% endfor %}
+
 	</div>
 </div>
 <canvas id="canvas" data-bg-color="{{ page.bg_color }}" data-stroke-color="{{ page.stroke_color }}" data-still="1"></canvas>
