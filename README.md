@@ -41,6 +41,8 @@ I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
 
 ## TODO
 
+- unicorn blog link
+- logo animation on hover
 - tenayo
 - ces 2013
 - sailthru annual report
