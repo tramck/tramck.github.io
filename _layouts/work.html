@@ -8,12 +8,13 @@ body_class: work
 		<div class="work-content row">
 			<div class="col-sm-8 col-sm-offset-2">
 				{{ page.content }}
+				<hr>
 
 				{% if page.redirect_to || page.full_case %}
 					<p class="links">
-						<a href="{{ page.redirect_to }}" target="_blank">View Site</a>
+						<a class="btn btn-default" href="{{ page.redirect_to }}" target="_blank">View Site</a>
 						{% if page.full_case %}
-							| <a href="{{ page.full_case }}" target="_blank">View Full Case Study on RedAntler.com</a>
+							<a class="btn btn-default" href="{{ page.full_case }}" target="_blank">View Full Case Study</a>
 						{% endif %}		
 					</p>
 				{% endif %}

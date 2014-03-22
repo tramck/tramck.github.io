@@ -6,9 +6,7 @@ tags:
   branding
   shopify
 redirect_to: http://trestledesign.co
-bg_color: "#ccdd00"
-stroke_color: "#0099cc"
-images:
-  trestle.png
+bg_color: "#889497"
+stroke_color: "#667"
 ---
-Trestle Design Co.
+Trestle Design Co. is a furntiture company based in St. Augustine, FL. The products Trestle creates are inspired by the nostalgia of the American railroad. I helped them to develop their brand and designed everything from the logo and identity to printed material and website. I also developed a custom Shopify theme for Trestle to sell their products on.

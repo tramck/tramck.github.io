@@ -41,10 +41,11 @@ I have added comments using [Disqus](www.discus.com) in _layouts/blog.html
 
 ## TODO
 
-- logo animation on hover
+- image situation
 - custom case color schemes
 - tenayo
 - ces 2013
 - sailthru annual report
+- dns switch
 - move rake tasks to grunt tasks
 
