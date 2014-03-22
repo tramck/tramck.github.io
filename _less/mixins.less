@@ -1,0 +1,8 @@
+.roll-in-children(@counter) when (@counter >= 0) {
+  .roll-in-children((@counter - 1));    // next iteration
+
+  &:nth-child(@{counter}) {
+  	.transition(all .25s ease-in-out .02s * @counter);
+  }
+
+}
