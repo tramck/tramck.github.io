@@ -75,4 +75,31 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jekyll');
 
   grunt.task.registerTask('default', ['connect:server', 'watch']);
+
+  grunt.task.registerTask('post', 'Create new jekyll posts from templates.', function() {
+    var name = grunt.option('name'),
+        category = grunt.option('cat'),
+        date = new Date(),
+        today = grunt.template.date(date, 'yyyy-mm-dd'),
+        template,
+        formatedName,
+        data,
+        content;
+
+    if (name) {
+      formatedName = name.replace(/[^a-z0-9]|\s+|\r?\n|\r/gmi, '-').toLowerCase();
+      category = category ? category : 'blog';
+      data = {
+        name: name,
+      };
+      template = grunt.file.read('_post-template-' + category + '.md');
+      content = grunt.template.process(template, {
+        data: data
+      });
+      grunt.file.write('_posts/' + category + '/' + today + '-' + formatedName + '.md', content);
+    }
+    else {
+      grunt.fail.warn('Name Required: `grunt post --name "My Post Name"`');
+    }
+  });
 }
