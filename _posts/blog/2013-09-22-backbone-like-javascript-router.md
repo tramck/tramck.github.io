@@ -3,7 +3,7 @@ layout: blog
 title: Backbone-like Javascript Router
 category: blog
 ---
-Tonight I created this quick little script to handle routing in javascript much like the backbone router works.
+For my own personal use, tonight I created this quick little script to handle routing in javascript much like a stripped down version of the backbone router. It doesn't deal with the HTML5 History API, but only checks the url to see if it matches any of the keys passed in to the router method and runs the correlating method contained within the object that the router method is being run from.
 
 {% highlight javascript %}
 var MyRouter = {
@@ -78,3 +78,5 @@ var MyRouter = {
  
 MyRouter.init();
 {% endhighlight %}
+
+If I get the time, I may end up building a jQuery plugin using this as a base.
