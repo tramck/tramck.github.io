@@ -1,5 +1,5 @@
 ---              
-layout: default
+layout: blog
 title: Using Grunt to Generate Jekyll Posts From Templates
 category: blog
 ---
