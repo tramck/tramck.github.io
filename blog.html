@@ -12,13 +12,17 @@ body_class: blog
 				<a href="{{ post.url }}">
 					<h2 class="text-center">{{ post.title }}</h2>
 				</a>
-				{{ post.content }}
+				<div class="post-content">
+					{{ post.content }}
+				</div>
 				<p class="text-center"><a class="btn btn-default" href="{{ post.url }}/#disqus_thread">Read More</a></p>
 			{% else %}
 				<a href="{{ post.url }}">
 					<h3 class="text-center">{{ post.title }}</h3>
 				</a>
-				<p>{{ post.excerpt }}</p>
+				<div class="post-content">
+					<p>{{ post.excerpt }}</p>
+				</div>
 				<p class="text-center"><a class="btn btn-default" href="{{ post.url }}">Read More</a></p>
 			{% endif %}
       <hr>
