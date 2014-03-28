@@ -8,9 +8,10 @@ body_class: blog
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
 		{% for post in site.categories.blog %}
+			<h5 class="post-date">{{ post.date | date: "%m/%d/%Y" }}</h5>
 			{% if forloop.first %}
 				<a href="{{ post.url }}">
-					<h2 class="text-center">{{ post.title }}</h2>
+					<h2 class="post-title">{{ post.title }}</h2>
 				</a>
 				<div class="post-content">
 					{{ post.content }}
@@ -18,7 +19,7 @@ body_class: blog
 				<p class="text-center"><a class="btn btn-default" href="{{ post.url }}/#disqus_thread">Read More</a></p>
 			{% else %}
 				<a href="{{ post.url }}">
-					<h3 class="text-center">{{ post.title }}</h3>
+					<h3 class="post-title">{{ post.title }}</h3>
 				</a>
 				<div class="post-content">
 					<p>{{ post.excerpt }}</p>
