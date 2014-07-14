@@ -5,7 +5,7 @@ This is the portfolio site and blog of Designer and Web Developer [Travis McKinn
 
 ## TODO
 
-- timber json api post
-- ces 2013
-- sailthru annual report
+- [ ] timber json api post
+- [ ] objective c lazy loading post
+- [ ] objective c categorizing uikit for brand components post
 
