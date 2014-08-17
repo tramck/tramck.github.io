@@ -1,0 +1,37 @@
+---
+layout: default
+body_class: resume
+---
+{% include subheader.html %}
+
+{% for section in page.sections %}
+	<div class="row">
+		<div class="col-sm-3 col-md-2 col-md-offset-1">
+			<h5 class="resume-heading">{{ section.title }}</h5>
+		</div>
+		<div class="col-sm-9 col-md-8">
+			{% for subsection in section.subsections %}
+				{% if subsection.title_list %}
+					<ul class="title-list">
+						{% for title in subsection.title_list %}
+							<li>{{ title }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				<p>{{ subsection.description }}</p>
+				{% unless forloop.last %}
+			    <hr>
+		    {% endunless %}
+			{% endfor %}
+		</div>
+	</div>	
+	{% unless forloop.last %}
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<hr class="solid">
+			</div>
+		</div>
+  {% endunless %}
+{% endfor %}
+
+<canvas id="canvas" data-bg-color="#eee" data-stroke-color="#fff" data-still="1"></canvas>

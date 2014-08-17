@@ -18,7 +18,7 @@ body_class: home
 
 <div class="row">
   <div class="col-sm-12 col-md-9 col-lg-8">
-    <p class="lead">I am a designer &amp; full-stack developer in Brooklyn. Currently, I am on the engineering team at <a href="http://redantler.com" class="change-bg" data-bg-color="#FF5324" data-stroke-color="#444" target="_blank">Red Antler.</a><!-- ,<br> Co-Creator of <a href="http://lettrr.com" class="change-bg" data-bg-color="#11B499">Lettrr</a> --></p>
+    <p class="lead">I am a designer &amp; full-stack developer in Brooklyn. Currently, I lead the engineering team at <a href="http://redantler.com" class="change-bg" data-bg-color="#FF5324" data-stroke-color="#444" target="_blank">Red Antler.</a><!-- ,<br> Co-Creator of <a href="http://lettrr.com" class="change-bg" data-bg-color="#11B499">Lettrr</a> --></p>
   </div>
 </div>
 
@@ -27,7 +27,18 @@ body_class: home
     <h3>Recent Work</h3>
     <ul class="home-list home-list-work">
       {% for post in site.categories.work %}
-        <li><span class="change-bg" data-bg-color="{{ post.bg_color }}" data-stroke-color="{{ post.stroke_color }}"><a href="{{ post.url }}" class="open-work">{{ post.title }}</a> {% if post.redirect_to %} <span class="hide-till-hover"><a class="link-out" href="{{ post.redirect_to }}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>{% endif %}</span></span></li>
+        <li>
+          <span class="change-bg" data-bg-color="{{ post.bg_color }}" data-stroke-color="{{ post.stroke_color }}">
+            <a href="{% if post.redirect_url %}{{ post.redirect_url }}{% else %}{{ post.url }}{% endif %}" class="open-work" {% if post.redirect_url %}target="_blank"{% endif %}>{{ post.title }}</a>
+            {% if post.iframe_url %} 
+              <span class="hide-till-hover">
+                <a class="link-out" href="{{ post.iframe_url }}" target="_blank">
+                  <span class="glyphicon glyphicon-new-window"></span>
+                </a>
+              </span>
+            {% endif %}
+          </span>
+        </li>
       {% endfor %}
     </ul>
 
@@ -42,6 +53,7 @@ body_class: home
 
     <h3>On the web</h3>
     <ul class="home-list">
+      <li><a href="{{ site.url }}resume">Resumé</a></li>
       <li><a href="{{ site.url }}blog">Blog</a></li>
       <li><a href="http://github.com/braznaavtrav">Github</a></li>
       <li><a href="http://stackoverflow.com/users/1173813/trav-mckinney">Stack Overflow</a></li>
