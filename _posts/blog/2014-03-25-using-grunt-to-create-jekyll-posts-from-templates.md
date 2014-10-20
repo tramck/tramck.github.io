@@ -3,7 +3,7 @@ layout: blog
 title: Using Grunt to Generate Jekyll Posts From Templates
 category: blog
 ---
-I have started using [Grunt](http://gruntjs.com/) more and more in my projects. Usually, I use it only to compile [LESS](http://lesscss.org/) to CSS, [coffeescript](http://coffeescript.org) (when I'm using it) to javascript, and concatenate and minify my javascript. I have really enjoyed using it way more than [Codekit](https://incident57.com/codekit/), which I had been using previously to do all this, because of its ease of customization and the number of plugins there are for it. You can find a Grunt plugin for nearly any need. 
+I have started using [Grunt](http://gruntjs.com/) more and more in my projects. Usually, I use it only to compile [LESS](http://lesscss.org/) to CSS, [coffeescript](http://coffeescript.org) (when I'm using it) to JavaScript, and concatenate and minify my JavaScript. I have really enjoyed using it way more than [Codekit](https://incident57.com/codekit/), which I had been using previously to do all this, because of its ease of customization and the number of plugins there are for it. You can find a Grunt plugin for nearly any need. 
 
 Before I started using Grunt with this site, I had a [Rakefile](https://github.com/braznaavtrav/braznaavtrav.github.io/blob/941ae93d5dee7492dd956e990de40746c7270179/Rakefile) set up to handle creating new posts from templates and to run deploy tasks. I no longer need the deploy tasks since I am now hosting this on [Github](https://github.com/braznaavtrav/braznaavtrav.github.io) and I figured it would be easy enough to build a Grunt task similar to my Rake tasks to handle generating new posts, therefore only using one task runner system instead of two disjointed ones. 
 
