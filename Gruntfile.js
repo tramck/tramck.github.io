@@ -74,7 +74,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-jekyll');
 
-  grunt.task.registerTask('default', ['connect:server', 'watch']);
+  grunt.task.registerTask('default', ['jekyll', 'connect:server', 'watch']);
 
   grunt.task.registerTask('post', 'Create new jekyll posts from templates.', function() {
     var name = grunt.option('name'),
