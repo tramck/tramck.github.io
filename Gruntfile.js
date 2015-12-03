@@ -1,5 +1,27 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+
+    pkg: grunt.file.readJSON('package.json'),
+
+    browserify: {
+      dist: {
+        files: {
+          'js/travmckinney.js': ['_js/index.js']
+        },
+        options: {
+          browserifyOptions: {
+            debug: true
+          }
+        }
+      }
+    },
+
+    eslint: {
+      src: ['_js/**/*.js'],
+      options: {
+        configFile: '.eslintrc',
+      }
+    },
     
     less: {
       production: {
@@ -13,34 +35,16 @@ module.exports = function(grunt) {
       }
     },
 
-    coffee: {
-      compile: {
-        files: {
-          'js/travmckinney.js': '_coffee/travmckinney.coffee'
-        }
-      }
-    },
-
-    uglify: {
-      dist: {
-        files: {
-          'js/travmckinney.min.js': ['_lib/*.js', 'js/travmckinney.js']
-        }
-      }
-    },
-
     watch: {
       less: {
         files: ['_less/**/*.less'],
         tasks: ['less:production']
       },
-      coffee: {
-        files: ['_coffee/*.coffee'],
-        tasks: ['coffee:compile']
-      },
-      uglify: {
-        files: ['js/travmckinney.js'],
-        tasks: ['uglify:dist']
+      javascript: {
+        files: [ 
+          '_js/**/*'
+        ],
+        tasks: ['build']
       },
       jekyll: {
         files: ['_config.yml', '*.html', '_posts/**/*', '_layouts/**/*', '_includes/**/*', 'img/**/*', 'css/**/*'],
@@ -52,6 +56,9 @@ module.exports = function(grunt) {
     },
 
     jekyll: {
+      options: {
+        bundleExec: true
+      },
       build: {
       }
     },
@@ -59,7 +66,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 3000,
+          port: 3001,
           base: '_site/'
         }
       }
@@ -67,12 +74,16 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerTask('build', ['eslint', 'browserify']);
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('gruntify-eslint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-jekyll');
+
 
   grunt.task.registerTask('default', ['jekyll', 'connect:server', 'watch']);
 
