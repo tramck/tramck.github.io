@@ -3,55 +3,14 @@ layout: default
 title: Home
 body_class: home
 ---
-<div class="modal fade" id="work-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"></h4>
-      </div>
-      <div class="modal-body">
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <div class="row">
   <div class="col-sm-12 col-md-9 col-lg-8">
-    <p class="lead">Freelance Front-End Engineer in Brooklyn. Previously lead the engineering team at <a href="http://redantler.com" class="change-bg" data-bg-color="#FF5324" data-stroke-color="#444" target="_blank">Red Antler.</a></p>
+    <p class="lead">Front-End Engineer living in Brooklyn and working for <a href="http://beeswax.com" class="change-bg" data-bg-color="#14463F" data-stroke-color="#48fee5" target="_blank">Beeswax.</a>Previously at <a href="http://redantler.com" class="change-bg" data-bg-color="#FF5324" data-stroke-color="#444" target="_blank">Red Antler.</a></p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-lg-12">
-    <h3>Recent Work</h3>
-    <ul class="home-list home-list-work">
-      {% for post in site.categories.work %}
-        <li>
-          <span class="change-bg" data-bg-color="{{ post.bg_color }}" data-stroke-color="{{ post.stroke_color }}">
-            <a href="{% if post.redirect_url %}{{ post.redirect_url }}{% else %}{{ post.url }}{% endif %}" class="open-work" {% if post.redirect_url %}target="_blank"{% endif %}>{{ post.title }}</a>
-            {% if post.iframe_url %} 
-              <span class="hide-till-hover">
-                <a class="link-out" href="{{ post.iframe_url }}" target="_blank">
-                  <span class="glyphicon glyphicon-new-window"></span>
-                </a>
-              </span>
-            {% endif %}
-          </span>
-        </li>
-      {% endfor %}
-    </ul>
-
-    <h3>Just For Fun</h3>
-    <ul class="home-list">
-      <li><a href="https://github.com/braznaavtrav/RouterJS">RouterJS</a></li>
-      <li><a href="https://github.com/braznaavtrav/DroplitJS">DroplitJS</a></li>
-      <li><a href="https://github.com/braznaavtrav/jquery.fabricator">jQuery Fabricator</a></li>
-      <li><a href="http://github.com/braznaavtrav/wordpress_composer">Wordpress Composer</a></li>
-      <li><a href="https://github.com/braznaavtrav/bootstrap-wordpress">bootstrap-wordpress</a></li>
-      <li><a href="https://github.com/braznaavtrav/widowRemover">widowRemover</a></li>
-    </ul>
-
     <h3>On the web</h3>
     <ul class="home-list">
       <li><a href="{{ site.url }}resume">Resumé</a></li>
