@@ -7,11 +7,6 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'js/travmckinney.js': ['_js/index.js']
-        },
-        options: {
-          browserifyOptions: {
-            debug: true
-          }
         }
       }
     },
@@ -47,7 +42,7 @@ module.exports = function(grunt) {
         tasks: ['build']
       },
       jekyll: {
-        files: ['_config.yml', '*.html', '_posts/**/*', '_layouts/**/*', '_includes/**/*', 'img/**/*', 'css/**/*'],
+        files: ['_config.yml', '*.html', '_posts/**/*', '_layouts/**/*', '_includes/**/*', 'img/**/*', 'css/**/*', 'js/**/*'],
         tasks: ['jekyll:build']
       },
       options: {

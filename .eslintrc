@@ -5,7 +5,8 @@
     "es6": 2
   },
   "ecmaFeatures": {
-    "modules": true
+    "modules": true,
+    "jsx": true
   },
   "rules": {
     
