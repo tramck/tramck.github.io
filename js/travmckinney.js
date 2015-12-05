@@ -86,9 +86,11 @@ var BackgroundArt = (function (_Component) {
     };
 
     _this.renderPoint = _this.renderPoint.bind(_this);
+    _this.renderLines = _this.renderLines.bind(_this);
     _this.windowX = _this.windowX.bind(_this);
     _this.windowY = _this.windowY.bind(_this);
     _this.onTick = _this.onTick.bind(_this);
+    _this.renderPath = _this.renderPath.bind(_this);
     return _this;
   }
 
@@ -109,17 +111,6 @@ var BackgroundArt = (function (_Component) {
       this.setState({ points: points });
     }
   }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _reactArt.Surface,
-        {
-          width: window.innerWidth,
-          height: window.innerHeight },
-        this.state.points.map(this.renderPoint)
-      );
-    }
-  }, {
     key: 'windowX',
     value: function windowX(x) {
       return window.innerWidth * x / 100;
@@ -128,6 +119,18 @@ var BackgroundArt = (function (_Component) {
     key: 'windowY',
     value: function windowY(y) {
       return window.innerHeight * y / 100;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactArt.Surface,
+        {
+          width: window.innerWidth,
+          height: window.innerHeight },
+        this.state.points.map(this.renderLines),
+        this.state.points.map(this.renderPoint)
+      );
     }
   }, {
     key: 'renderPoint',
@@ -139,11 +142,48 @@ var BackgroundArt = (function (_Component) {
         _reactArt.Group,
         { x: x, y: y, key: i },
         _react2.default.createElement(_circle2.default, {
-          radius: 10,
+          radius: 3,
           stroke: 'green',
-          strokeWidth: 3,
+          strokeWidth: 1,
           fill: 'blue' })
       );
+    }
+  }, {
+    key: 'renderLines',
+    value: function renderLines(point, i) {
+      var _this2 = this;
+
+      return this.state.points.slice(i, this.state.points.length).map(function (p, i2) {
+        var path = (0, _reactArt.Path)();
+        path.move(_this2.windowX(point.x), _this2.windowY(point.y));
+        path.line(_this2.windowX(p.x - point.x), _this2.windowY(p.y - point.y));
+        return _react2.default.createElement(_reactArt.Shape, {
+          stroke: 'green',
+          strokeWidth: 1,
+          d: path,
+          key: i2 });
+      });
+    }
+  }, {
+    key: 'renderPath',
+    value: function renderPath() {
+      var _this3 = this;
+
+      var path = (0, _reactArt.Path)();
+      var points = this.state.points.slice(0, this.state.points.length);
+      var point = this.state.points[0];
+
+      path.move(this.windowX(point.x), this.windowY(point.y));
+
+      points.forEach(function (p) {
+        path.line(_this3.windowX(p.x - point.x), _this3.windowY(p.y - point.y));
+        point = p;
+      });
+
+      return _react2.default.createElement(_reactArt.Shape, {
+        stroke: 'green',
+        strokeWidth: 3,
+        d: path });
     }
   }]);
 
@@ -184,7 +224,7 @@ var _backgroundArt2 = _interopRequireDefault(_backgroundArt);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _reactDom.render)(_react2.default.createElement(_backgroundArt2.default, { count: 10 }), document.getElementById('app'));
+(0, _reactDom.render)(_react2.default.createElement(_backgroundArt2.default, { count: 12 }), document.getElementById('app'));
 
 },{"./components/background-art":1,"react":195,"react-dom":39}],4:[function(require,module,exports){
 // shim for using process in browser

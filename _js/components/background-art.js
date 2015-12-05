@@ -16,7 +16,8 @@ import {
   Group,
   Shape,
   Surface,
-  Transform 
+  Transform,
+  Path
 } from 'react-art';
 
 import Circle from 'react-art/shapes/circle';
@@ -73,9 +74,11 @@ export default class BackgroundArt extends Component {
     };
 
     this.renderPoint = this.renderPoint.bind(this);
+    this.renderLines = this.renderLines.bind(this);
     this.windowX = this.windowX.bind(this);
     this.windowY = this.windowY.bind(this);
     this.onTick = this.onTick.bind(this);
+    this.renderPath = this.renderPath.bind(this);
   }
 
   componentDidMount() {
@@ -91,22 +94,23 @@ export default class BackgroundArt extends Component {
     this.setState({ points });
   }
 
-  render() {
-    return (
-      <Surface
-        width={window.innerWidth}
-        height={window.innerHeight}>
-        {this.state.points.map(this.renderPoint)}
-      </Surface>
-    );
-  }
-
   windowX(x) {
     return window.innerWidth * x / 100;
   }
 
   windowY(y) {
     return window.innerHeight * y  / 100;
+  }
+
+  render() {
+    return (
+      <Surface
+        width={window.innerWidth}
+        height={window.innerHeight}>
+        {this.state.points.map(this.renderLines)}
+        {this.state.points.map(this.renderPoint)}
+      </Surface>
+    );
   }
 
   renderPoint(p, i) {
@@ -116,12 +120,46 @@ export default class BackgroundArt extends Component {
     return (
       <Group x={x} y={y} key={i}>
         <Circle
-          radius={10}
+          radius={3}
           stroke="green"
-          strokeWidth={3}
+          strokeWidth={1}
           fill="blue"/>
       </Group>
     );
+  }
+
+  renderLines(point, i) {
+    return this.state.points.slice(i, this.state.points.length).map((p, i2) => {
+      const path = Path();
+      path.move(this.windowX(point.x), this.windowY(point.y));
+      path.line(this.windowX(p.x - point.x), this.windowY(p.y - point.y));
+      return <Shape 
+        stroke="green" 
+        strokeWidth={1} 
+        d={path}
+        key={i2} />;
+    }); 
+  }
+
+  renderPath() {
+    const path = Path();
+    const points = this.state.points.slice(0, this.state.points.length);
+    let point = this.state.points[0];
+          
+    path.move(
+      this.windowX(point.x), 
+      this.windowY(point.y)
+    );
+
+    points.forEach(p => {
+      path.line(this.windowX(p.x - point.x), this.windowY(p.y - point.y));
+      point = p;
+    });
+
+    return <Shape 
+      stroke="green" 
+      strokeWidth={3} 
+      d={path} />;
   }
 }
 
