@@ -31,24 +31,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// Number -> Number
 var intUnder = function intUnder(n) {
   return Math.floor(Math.random() * n);
 };
+var radiansFromDeg = function radiansFromDeg(deg) {
+  return deg * (Math.PI / 180);
+};
 
+// -> Point
 var randomVector = function randomVector() {
   return {
     x: intUnder(100),
     y: intUnder(100),
-    d: intUnder(360),
-    v: 2
+    vx: (Math.random() * 2 - 1) * 0.05,
+    vy: (Math.random() * 2 - 1) * 0.05
   };
 };
 
+// Number -> Array<Point>
 var setupPoints = (0, _ramda.compose)((0, _ramda.map)(randomVector), (0, _ramda.times)(_ramda.identity));
 
-/**
- * An animated SVG component.
- */
+// Point -> Point
+var recalculatePoint = function recalculatePoint(p) {
+  var np = (0, _ramda.clone)(p);
+
+  if (np.x > 100 || np.x < 0) {
+    np.vx *= -1;
+  }
+
+  if (np.y > 100 || np.y < 0) {
+    np.vy *= -1;
+  }
+
+  np.y += np.vy;
+  np.x += np.vx;
+
+  return np;
+};
+
+// Array<Point> -> Array<Point>
+var recalculatePoints = (0, _ramda.map)(recalculatePoint);
 
 var BackgroundArt = (function (_Component) {
   _inherits(BackgroundArt, _Component);
@@ -65,33 +88,25 @@ var BackgroundArt = (function (_Component) {
     _this.renderPoint = _this.renderPoint.bind(_this);
     _this.windowX = _this.windowX.bind(_this);
     _this.windowY = _this.windowY.bind(_this);
+    _this.onTick = _this.onTick.bind(_this);
     return _this;
   }
-
-  /**
-   * When the component is mounted into the document - this is similar to a
-   * constructor, but invoked when the instance is actually mounted into the
-   * document. Here's, we'll just set up an animation loop that invokes our
-   * method. Binding of `this.onTick` is not needed because all React methods
-   * are automatically bound before being mounted.
-   */
 
   _createClass(BackgroundArt, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // this._interval = setInterval(this.onTick, 20);
+      this._interval = setInterval(this.onTick, 20);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      // clearInterval(this._interval);
+      clearInterval(this._interval);
     }
   }, {
     key: 'onTick',
     value: function onTick() {
-      var nextDegrees = this.state.degrees + BASE_VEL + this.state.velocity;
-      var nextVelocity = this.state.velocity * this.state.drag;
-      this.setState({ degrees: nextDegrees, velocity: nextVelocity });
+      var points = recalculatePoints(this.state.points);
+      this.setState({ points: points });
     }
   }, {
     key: 'render',

@@ -3,7 +3,8 @@ import {
   map,
   identity,
   times,
-  multiply
+  multiply,
+  clone
 } from 'ramda';
 
 import React, { 
@@ -22,22 +23,46 @@ import Circle from 'react-art/shapes/circle';
 
 import log from '../fn/log';
 
+// Number -> Number
 const intUnder = n => Math.floor(Math.random() * n);
+const radiansFromDeg = deg => deg * (Math.PI/180);
 
+// -> Point
 const randomVector = () => {
   return {
     x: intUnder(100),
     y: intUnder(100),
-    d: intUnder(360),
-    v: 2
+    vx: (Math.random() * 2 - 1) * 0.05,
+    vy: (Math.random() * 2 - 1) * 0.05
   };
 };
 
+// Number -> Array<Point>
 const setupPoints = compose(map(randomVector), times(identity));
 
-/**
- * An animated SVG component.
- */
+
+// Point -> Point
+const recalculatePoint = p => {
+  const np = clone(p);
+  
+  if (np.x > 100 || np.x < 0) {
+    np.vx *= -1;
+  }
+
+  if (np.y > 100 || np.y < 0) {
+    np.vy *= -1;
+  }
+
+  np.y += np.vy;
+  np.x += np.vx;
+
+  return np;
+};
+
+// Array<Point> -> Array<Point>
+const recalculatePoints = map(recalculatePoint);
+
+
 export default class BackgroundArt extends Component {
 
   constructor(props) {
@@ -50,27 +75,20 @@ export default class BackgroundArt extends Component {
     this.renderPoint = this.renderPoint.bind(this);
     this.windowX = this.windowX.bind(this);
     this.windowY = this.windowY.bind(this);
+    this.onTick = this.onTick.bind(this);
   }
 
-  /**
-   * When the component is mounted into the document - this is similar to a
-   * constructor, but invoked when the instance is actually mounted into the
-   * document. Here's, we'll just set up an animation loop that invokes our
-   * method. Binding of `this.onTick` is not needed because all React methods
-   * are automatically bound before being mounted.
-   */
   componentDidMount() {
-    // this._interval = setInterval(this.onTick, 20);
+    this._interval = setInterval(this.onTick, 20);
   }
 
   componentWillUnmount() {
-    // clearInterval(this._interval);
+    clearInterval(this._interval);
   }
 
   onTick() {
-    var nextDegrees = this.state.degrees + BASE_VEL + this.state.velocity;
-    var nextVelocity = this.state.velocity * this.state.drag;
-    this.setState({degrees: nextDegrees, velocity: nextVelocity});
+    const points = recalculatePoints(this.state.points);
+    this.setState({ points });
   }
 
   render() {
