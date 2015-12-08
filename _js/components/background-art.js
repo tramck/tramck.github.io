@@ -4,8 +4,13 @@ import {
   identity,
   times,
   multiply,
-  clone
+  clone,
+  sortBy,
+  prop,
+  flatten
 } from 'ramda';
+
+import partitionAll from 'partition-all';
 
 import React, { 
   Component,
@@ -60,7 +65,7 @@ const recalculatePoint = p => {
   return np;
 };
 
-// Array<Point> -> Array<Point>
+// [Point] -> [Point]
 const recalculatePoints = map(recalculatePoint);
 
 
@@ -70,7 +75,7 @@ export default class BackgroundArt extends Component {
     super(props);
     
     this.state = {
-      points: setupPoints(props.count)
+      points: setupPoints(props.rowCount * props.colCount)
     };
 
     this.renderPoint = this.renderPoint.bind(this);
@@ -78,11 +83,10 @@ export default class BackgroundArt extends Component {
     this.windowX = this.windowX.bind(this);
     this.windowY = this.windowY.bind(this);
     this.onTick = this.onTick.bind(this);
-    this.renderPath = this.renderPath.bind(this);
   }
 
   componentDidMount() {
-    this._interval = setInterval(this.onTick, 20);
+    this._interval = setInterval(this.onTick, 50);
   }
 
   componentWillUnmount() {
@@ -107,7 +111,7 @@ export default class BackgroundArt extends Component {
       <Surface
         width={window.innerWidth}
         height={window.innerHeight}>
-        {this.state.points.map(this.renderLines)}
+        {this.renderLines()}
         {this.state.points.map(this.renderPoint)}
       </Surface>
     );
@@ -128,41 +132,70 @@ export default class BackgroundArt extends Component {
     );
   }
 
-  renderLines(point, i) {
-    return this.state.points.slice(i, this.state.points.length).map((p, i2) => {
-      const path = Path();
-      path.move(this.windowX(point.x), this.windowY(point.y));
-      path.line(this.windowX(p.x - point.x), this.windowY(p.y - point.y));
-      return <Shape 
+  renderLines() {
+    const { points } = this.state,
+          { colCount } = this.props,
+          segments = [],
+          pointsToRows = compose(
+            map(sortBy(prop('x'))), 
+            partitionAll(colCount), 
+            sortBy(prop('y'))
+          ),
+          rows = pointsToRows(points),
+          // *---*---*---*
+          //  \ / \ / \ / \
+          //   *---*---*---*
+          //    \ / \ / \ / \
+          //     *---*---*---*
+          paths = flatten(rows.map((row, i) => {
+            const paths = [],
+                  path1 = Path();
+
+            row.forEach((p, i2) => {
+              if (!i2) {
+                return path1.move(this.windowX(p.x), this.windowY(p.y));
+              }
+              const lp = row[i2-1];
+              return path1.line(this.windowX(p.x - lp.x), this.windowY(p.y - lp.y));
+            });
+
+            paths.push(path1);
+            
+            if (i < rows.length - 1) {
+              let path2 = Path(),
+                  row2 = rows[i+1];
+
+              row.forEach((p, i2) => {
+                let p2 = row2[i2],
+                    p3 = row[i2+1];
+
+                if (!i2) {
+                  path2.move(this.windowX(p.x), this.windowY(p.y));
+                }
+                
+                if (p2) {
+                  path2.line(this.windowX(p2.x - p.x), this.windowY(p2.y - p.y));
+                  if (p3) {
+                    path2.line(this.windowX(p3.x - p2.x), this.windowY(p3.y - p2.y)); 
+                  }
+                }
+              });
+
+              paths.push(path2);
+            }
+            return paths;
+          }));
+
+    return paths.map((p, i) => 
+      <Shape 
         stroke="green" 
         strokeWidth={1} 
-        d={path}
-        key={i2} />;
-    }); 
-  }
-
-  renderPath() {
-    const path = Path();
-    const points = this.state.points.slice(0, this.state.points.length);
-    let point = this.state.points[0];
-          
-    path.move(
-      this.windowX(point.x), 
-      this.windowY(point.y)
-    );
-
-    points.forEach(p => {
-      path.line(this.windowX(p.x - point.x), this.windowY(p.y - point.y));
-      point = p;
-    });
-
-    return <Shape 
-      stroke="green" 
-      strokeWidth={3} 
-      d={path} />;
+        d={p}
+        key={i} />);
   }
 }
 
 BackgroundArt.propTypes = { 
-  count: PropTypes.number.isRequired
+  rowCount: PropTypes.number.isRequired,
+  colCount: PropTypes.number.isRequired
 };
