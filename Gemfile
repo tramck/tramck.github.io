@@ -1,5 +1,4 @@
-source 'http://gemcutter.org'
+source 'https://rubygems.org'
 
 gem 'jekyll'
-gem 'github-pages'
-gem 'rake'
+gem 'github-pages', group: :jekyll_plugins

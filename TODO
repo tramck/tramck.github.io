@@ -1,0 +1,9 @@
+- [x] grunt -> webpack
+    - [x] build js
+    - [x] build less
+    - [x] use bundle
+- [ ] scripts for jekyll and webpack with watchers
+    - [ ] development
+    - [ ] production
+- [ ] translate old coffee to TS
+-
