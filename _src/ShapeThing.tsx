@@ -11,8 +11,8 @@ type Vector = {
 const updateVector = ({ x, y, dx, dy }: Vector): Vector => ({
     x: x + dx,
     y: y + dy,
-    dx: (x < 0 || x > window.innerWidth) ? dx * -1 : dx,
-    dy: (y < 0 || y > window.innerHeight) ? dy * -1 : dy,
+    dx: ((x < 0 && dx < 0) || (x > window.innerWidth && dx > 0)) ? dx * -1 : dx,
+    dy: ((y < 0 && dy < 0) || (y > window.innerHeight && dy > 0)) ? dy * -1 : dy,
 });
 
 const randBetween = (a, b) => a + Math.random() * (b - a);
@@ -37,20 +37,17 @@ interface Props {
 
 export default ({ animated, strokeColor }: Props) => {
     const [vectors, setVectors] = useState<Vector[]>(generateRandomVectors(10));
-    console.log(vectors);
     const rafRef = useRef<number>();
-
-    const animate = t => {
-        setVectors(vectors.map(v => updateVector(v)));
-        rafRef.current = requestAnimationFrame(animate);
-    };
 
     useEffect(() => {
         if (animated) {
+            const animate = () => {
+                setVectors(vectors.map(updateVector));
+            };
             rafRef.current = requestAnimationFrame(animate);
             return () => cancelAnimationFrame(rafRef.current);
         }
-    }, []);
+    }, [vectors]);
 
     return (
         <>
