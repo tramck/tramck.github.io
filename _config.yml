@@ -8,7 +8,7 @@
 # month  Month from the post’s filename
 # day  Day from the post’s filename
 # title  Title from the post’s filename
-# categories   The specified categories for this post. Jekyll automatically parses out double slashes in the URLs, so if no categories are present, it basically ignores this.   
+# categories   The specified categories for this post. Jekyll automatically parses out double slashes in the URLs, so if no categories are present, it basically ignores this.
 
 # Built-in styles
 # Name  Template
@@ -47,4 +47,4 @@ kramdown:
     coderay_bold_every: 10
     coderay_css: style
 
-exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'package.json', 'node_modules', 'Gruntfile.js', 'CNAME']
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'package.json', 'node_modules', 'Gruntfile.js', 'CNAME', '_src', 'webpack.config.js', 'yarn.lock', 'TODO', 'tsconfig.json']

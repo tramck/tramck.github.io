@@ -1,11 +1,22 @@
 {
   "name": "braznaavtrav.github.io",
   "devDependencies": {
+    "@types/react": "^16.9.2",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "style-loader": "^1.0.0",
     "ts-loader": "^6.1.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8"
+  },
+  "dependencies": {
+    "easy-peasy": "^3.0.2",
+    "konva": "^4.0.10",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-konva": "^16.9.0-0"
   }
 }
