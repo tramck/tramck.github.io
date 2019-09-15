@@ -15,26 +15,30 @@ const INITIAL_STATE = {
 
 const store = createStore(INITIAL_STATE);
 
+const body = document.body;
+const isHome = body.classList.contains('home');
 
-const changeBgEls = (document.querySelectorAll('.change-bg')) as NodeListOf<HTMLElement>;
+if (isHome) {
+    const changeBgEls = document.querySelectorAll('.change-bg') as NodeListOf<HTMLElement>;
 
-changeBgEls.forEach(el => {
-    el.addEventListener('mouseenter', e => {
-        store.dispatch.colors.updateColors({
-            strokeColor: el.dataset['strokeColor'],
-            bgColor: el.dataset['bgColor'],
+    changeBgEls.forEach(el => {
+        el.addEventListener('mouseenter', e => {
+            store.dispatch.colors.updateColors({
+                strokeColor: el.dataset['strokeColor'],
+                bgColor: el.dataset['bgColor'],
+            });
+        });
+
+        el.addEventListener('mouseleave', e => {
+            store.dispatch.colors.updateColors(INITIAL_STATE);
         });
     });
 
-    el.addEventListener('mouseleave', e => {
-        store.dispatch.colors.updateColors(INITIAL_STATE);
-    });
-});
-
+}
 
 render(
     <StoreProvider store={store}>
-        <Background still={typeof root.dataset['still'] !== 'undefined'} />
+        <Background animated={typeof root.dataset['still'] === 'undefined'} />
     </StoreProvider>,
     root
 );
