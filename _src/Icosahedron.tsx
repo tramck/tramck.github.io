@@ -8,6 +8,8 @@ interface Point {
 
 type Edge = number[];
 
+type Face = number[];
+
 interface Vector extends Point {
     dx: number;
     dy: number;
@@ -25,7 +27,7 @@ const updateVector = ({ x, y, dx, dy }: Vector): Vector => ({
 
 const randBetween = (a, b) => a + Math.random() * (b - a);
 
-const generateRandomVectors = (n: number): Vector[] => {
+const nRandomVectors = (n: number): Vector[] => {
     const arr = [];
     for (let i = 0; i < n; i++) {
         arr.push({
@@ -36,11 +38,6 @@ const generateRandomVectors = (n: number): Vector[] => {
         });
     }
     return arr;
-}
-
-interface Props {
-    animated: boolean;
-    strokeColor: string;
 }
 
 const ICOSAHEDRON_EDGES = [
@@ -77,27 +74,28 @@ const ICOSAHEDRON_EDGES = [
 ];
 
 const ICOSAHEDRON_FACES = [
-    [ 0, 5, 1 ],
-    [ 0, 7, 3 ],
-    [ 1, 20, 4 ],
-    [ 2, 24, 3 ],
-    [ 2, 25, 4 ],
-    [ 5, 18, 6 ],
-    [ 6, 22, 8 ],
-    [ 7, 26, 8 ],
-    [ 9, 14, 10 ],
-    [ 9, 17, 13 ],
-    [ 10, 25, 12 ],
-    [ 11, 27, 12 ],
-    [ 11, 28, 13 ],
-    [ 14, 24, 15 ],
-    [ 15, 26, 16 ],
-    [ 16, 29, 17 ],
-    [ 18, 21, 19 ],
-    [ 19, 27, 20 ],
-    [ 21, 28, 23 ],
-    [ 22, 29, 23 ],
+    [ 0, 1, 4 ],
+    [ 0, 1, 7 ],
+    [ 0, 4, 10 ],
+    [ 0, 6, 7 ],
+    [ 0, 6, 10 ],
+    [ 1, 4, 5 ],
+    [ 1, 5, 9 ],
+    [ 1, 7, 9 ],
+    [ 2, 3, 6 ],
+    [ 2, 3, 11 ],
+    [ 2, 6, 10 ],
+    [ 2, 8, 10 ],
+    [ 2, 8, 11 ],
+    [ 3, 6, 7 ],
+    [ 3, 7, 9 ],
+    [ 3, 9, 11 ],
+    [ 4, 5, 8 ],
+    [ 4, 8, 10 ],
+    [ 5, 8, 11 ],
+    [ 5, 9, 11 ],
 ];
+// const triangles = [];
 // for (let i = 0; i < ICOSAHEDRON_EDGES.length; i++) {
 //     let [a, b] = ICOSAHEDRON_EDGES[i];
 //     for (let j = 0; j < ICOSAHEDRON_EDGES.length; j++) {
@@ -106,21 +104,33 @@ const ICOSAHEDRON_FACES = [
 //             for (let k = 0; k < ICOSAHEDRON_EDGES.length; k++) {
 //                 let [a_, c_] = ICOSAHEDRON_EDGES[k];
 //                 if (a_ === a && c_ === c) {
-//                     triangles.push([i, j, k]);
+//                     triangles.push([a, b, c]);
 //                 }
 //             }
 //         }
 //     }
 // }
 
-const generateIcosahedralEdges = (vectors: Vector[]): Edge[] =>
-    ICOSAHEDRON_EDGES.map(([i, j]) => [
-        vectors[i].x, vectors[i].y, vectors[j].x, vectors[j].y
-    ]
-);
+const generateIcosahedralEdges = (vectors: Vector[]): Edge[] => ICOSAHEDRON_EDGES.map(([i, j]) => [
+    vectors[i].x, vectors[i].y,
+    vectors[j].x, vectors[j].y,
+]);
 
-export default ({ animated, strokeColor }: Props) => {
-    const [vectors, setVectors] = useState<Vector[]>(generateRandomVectors(12));
+const generateIcosahedralFaces = (vectors: Vector[]): Face[] => ICOSAHEDRON_FACES.map(([i, j, k]) => [
+    vectors[i].x, vectors[i].y,
+    vectors[j].x, vectors[j].y,
+    vectors[k].x, vectors[k].y,
+]);
+
+
+interface Props {
+    animated: boolean;
+    strokeColor: string;
+    faceColor: string;
+}
+
+export default ({ animated, strokeColor, faceColor }: Props) => {
+    const [vectors, setVectors] = useState<Vector[]>(nRandomVectors(12));
     const rafRef = useRef<number>();
 
     useEffect(() => {
@@ -134,14 +144,18 @@ export default ({ animated, strokeColor }: Props) => {
     }, [vectors]);
 
     const edges = generateIcosahedralEdges(vectors);
+    const faces = generateIcosahedralFaces(vectors);
 
     return (
         <>
+            {faces.map((face, idx) => (
+                <Line key={`f${idx}`} points={face} fill={faceColor} closed={true} />
+            ))}
             {vectors.map((v, idx) => (
-                <Circle key={`v${idx}`} x={v.x} y={v.y} radius={4} fill={strokeColor} />
+                <Circle key={`v${idx}`} x={v.x} y={v.y} radius={2} fill={strokeColor} />
             ))}
             {edges.map((edge, idx) => (
-                <Line key={`e${idx}`} points={edge} stroke={strokeColor} strokeWidth={2} />
+                <Line key={`e${idx}`} points={edge} stroke={strokeColor} strokeWidth={1} />
             ))}
         </>
     );

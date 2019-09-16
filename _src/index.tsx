@@ -11,6 +11,7 @@ const root = document.getElementById('background-canvas');
 const INITIAL_STATE = {
     strokeColor: root.dataset['strokeColor'],
     bgColor: root.dataset['bgColor'],
+    faceColor: root.dataset['faceColor'],
 };
 
 const store = createStore(INITIAL_STATE);
@@ -26,6 +27,7 @@ if (isHome) {
             store.dispatch.colors.updateColors({
                 strokeColor: el.dataset['strokeColor'],
                 bgColor: el.dataset['bgColor'],
+                faceColor: el.dataset['faceColor'],
             });
         });
 

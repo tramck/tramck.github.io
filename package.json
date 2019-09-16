@@ -1,5 +1,9 @@
 {
   "name": "braznaavtrav.github.io",
+  "scripts": {
+    "dev": "webpack -w --mode=development",
+    "build": "webpack --mode=production"
+  },
   "devDependencies": {
     "@types/react": "^16.9.2",
     "css-loader": "^3.2.0",
