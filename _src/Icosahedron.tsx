@@ -19,9 +19,10 @@ const W = window.innerWidth;
 const H = window.innerHeight;
 
 const MAX_V = 2;
+const BORDER = 20;
 const C_X = W / 2;
 const C_Y = H / 2;
-const R = Math.min(C_X, C_Y) - 50;
+const R = Math.min(C_X, C_Y) - 20;
 
 const updateVector = ({ x, y, dx, dy }: VectorPoint): VectorPoint => {
     // calculate distance from center (dc)
