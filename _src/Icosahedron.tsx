@@ -10,7 +10,7 @@ type Edge = number[];
 
 type Face = number[];
 
-interface Vector extends Point {
+interface VectorPoint extends Point {
     dx: number;
     dy: number;
 }
@@ -18,23 +18,58 @@ interface Vector extends Point {
 const W = window.innerWidth;
 const H = window.innerHeight;
 
-const updateVector = ({ x, y, dx, dy }: Vector): Vector => ({
-    x: x + dx,
-    y: y + dy,
-    dx: ((x < 0 && dx < 0) || (x > W && dx > 0)) ? dx * -1 : dx,
-    dy: ((y < 0 && dy < 0) || (y > H && dy > 0)) ? dy * -1 : dy,
-});
+const MAX_V = 2;
+const C_X = W / 2;
+const C_Y = H / 2;
+const R = Math.min(C_X, C_Y) - 50;
+
+const updateVector = ({ x, y, dx, dy }: VectorPoint): VectorPoint => {
+    // calculate distance from center (dc)
+    const dcx = C_X - x;
+    const dcy = C_Y - y;
+    const dc = Math.sqrt(dcx ** 2 + dcy ** 2);
+    let _dx = dx;
+    let _dy = dy;
+
+    const isMovingAway = () => Math.sqrt((C_X - x - dx) ** 2 + (C_Y - y - dy) ** 2) > dc;
+
+    if (dc > R && isMovingAway()) {
+        // point's polar coordinate relative to center
+        //  + 1 to get the normal of the wall angle
+        const n_theta = Math.atan(dcy / dcx) + 1;
+        // −(2(n · v) n − v)
+        // normal of wall angle
+        const nx = -1 * Math.sin(n_theta);
+        const ny = Math.cos(n_theta);
+        // dot product
+        const dot = _dx * nx + _dy * ny;
+        // new _dx, _dy
+        _dx = _dx - 2 * dot * nx - _dx;
+        _dy = _dy - 2 * dot * ny - _dy;
+    }
+
+    return {
+        x: x + _dx,
+        y: y + _dy,
+        dx: _dx,
+        dy: _dy,
+    };
+};
 
 const randBetween = (a, b) => a + Math.random() * (b - a);
 
-const nRandomVectors = (n: number): Vector[] => {
+const nRandomVectors = (n: number): VectorPoint[] => {
     const arr = [];
     for (let i = 0; i < n; i++) {
+        // calculate x and y using polar coordinates in order to
+        // contain initial points within R of C
+        let r = randBetween(0, R);
+        let phi = randBetween(0, 2);
         arr.push({
-            x: randBetween(0, W),
-            y: randBetween(0, H),
-            dx: randBetween(-3, 3),
-            dy: randBetween(-3, 3),
+            x: C_X + r * Math.cos(phi),
+            y: C_Y + r * Math.sin(phi),
+            dx: randBetween(-MAX_V, MAX_V),
+            dy: randBetween(-MAX_V, MAX_V),
         });
     }
     return arr;
@@ -111,15 +146,15 @@ const ICOSAHEDRON_FACES = [
 //     }
 // }
 
-const generateIcosahedralEdges = (vectors: Vector[]): Edge[] => ICOSAHEDRON_EDGES.map(([i, j]) => [
-    vectors[i].x, vectors[i].y,
-    vectors[j].x, vectors[j].y,
+const generateIcosahedralEdges = (vps: VectorPoint[]): Edge[] => ICOSAHEDRON_EDGES.map(([i, j]) => [
+    vps[i].x, vps[i].y,
+    vps[j].x, vps[j].y,
 ]);
 
-const generateIcosahedralFaces = (vectors: Vector[]): Face[] => ICOSAHEDRON_FACES.map(([i, j, k]) => [
-    vectors[i].x, vectors[i].y,
-    vectors[j].x, vectors[j].y,
-    vectors[k].x, vectors[k].y,
+const generateIcosahedralFaces = (vps: VectorPoint[]): Face[] => ICOSAHEDRON_FACES.map(([i, j, k]) => [
+    vps[i].x, vps[i].y,
+    vps[j].x, vps[j].y,
+    vps[k].x, vps[k].y,
 ]);
 
 
@@ -130,7 +165,7 @@ interface Props {
 }
 
 export default ({ animated, strokeColor, faceColor }: Props) => {
-    const [vectors, setVectors] = useState<Vector[]>(nRandomVectors(12));
+    const [vectors, setVectors] = useState<VectorPoint[]>(nRandomVectors(12));
     const rafRef = useRef<number>();
 
     useEffect(() => {

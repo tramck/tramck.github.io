@@ -1,7 +1,1 @@
-- [x] easy-peasy store for updating colors
-- [x] dispatch updateColor action on link hover
-- [ ] react konva animation
 - [ ] get it working with inner pages
-- [ ] scripts for jekyll and webpack with watchers
-    - [ ] development
-    - [ ] production
